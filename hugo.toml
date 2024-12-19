@@ -1,0 +1,23 @@
+# run with `hugo server -D`
+
+# COPY parameters from themes/hugo-book/exampleSite/hugo.toml
+# use drafts/ for more on header tags
+# DOCS: https://themes.gohugo.io/themes/hugo-book/
+# EXAMPLE: https://hugo-book-demo.netlify.app/
+
+# when you're ready, publish: 
+# https://gohugo.io/hosting-and-deployment/hosting-on-github/
+
+baseURL = 'https://airportpeople.github.io'
+languageCode = 'en-us'
+title = 'thoughts and feelings'
+theme = 'hugo-book'
+
+[params]
+  BookTheme = 'dark'
+  BookFavicon = 'groovepaper.png'
+  BookRepo = 'https://github.com/airportpeople/dots'
+  math = false
+
+[markup.goldmark.renderer]
+  unsafe = true
