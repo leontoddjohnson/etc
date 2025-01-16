@@ -10,7 +10,7 @@
 
 baseURL = 'https://airportpeople.github.io'
 languageCode = 'en-us'
-title = 'thoughts and feelings'
+title = 'a place to share pixels'
 theme = 'hugo-book'
 
 [params]

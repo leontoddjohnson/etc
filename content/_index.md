@@ -1,12 +1,11 @@
 ---
 title: ap
 type: docs
+booktoc: false
 ---
 
-# this is a place to share pixels
+This is a place to share pixels:
 
 The [scripts](/docs/scripts) are for monome norns. The [ideas](/docs/ideas) are short, and the [blog](/posts) articles are long.
 
-## who am i
-
-My parents named me leon. I share music [here](https://airportpeople.bandcamp.com/).
+[Here](https://airportpeople.bandcamp.com/) is a place to share sounds.

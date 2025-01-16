@@ -51,10 +51,10 @@ $hint-colors: (
   --gray-200: #5c6165;
   --gray-500: #999d9f;
 
-  --color-link: #cc9d3a; // #84b2ff  #cc9d3a  #007fff
-  --color-visited-link: #deb887;
+  --color-link: #deb887 ; // #84b2ff  #cc9d3a  #007fff  #deb887
+  --color-visited-link: #999d9f;  // #999d9f   #deb887
 
-  --body-background: #373737;  // #373737  #343a40
+  --body-background: #353535;  // #373737  #343a40  #353535
   --body-font-color: #e9ecef;
 
   --icon-filter: brightness(0) invert(1);
