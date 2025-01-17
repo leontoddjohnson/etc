@@ -35,7 +35,7 @@ Constantly record the last `loop length` seconds of input, and allow four voices
 
 ## ui
 
-{{< figure src="/moments_example.png" class="center-image">}}
+{{< figure src="moments_example.png" class="center-image">}}
 
 - The total loop length can be updated using either **K2** or **K3**
 - Adjusting either **E2** or **E3** will update the loop length
@@ -48,13 +48,13 @@ This script is compatible with either 128-pad monome grids, or the 64-pad Launch
 
 **left section**
 
-{{< figure src="/grid/moments_1.png" class="center-image-80">}}
+{{< figure src="moments_1.png" class="center-image-80">}}
 
 The top and bottom portions contain four rows. Each row corresponds to a voice (or, in the UI, a dot).
 
 **right section**
 
-{{< figure src="/grid/moments_2.png">}}
+{{< figure src="moments_2.png">}}
 
 - The time between dot moves is determined by a fraction of the `CLOCK` tempo. The 8 pads correspond to $\displaystyle \frac{1}{k}$ of a beat for $k = 8, 7, ..., 1$. I.e., faster movements are on the left, and slower less frequent movements are on the right.
 - The rate can be forward or reverse. To toggle between the two, select the bright (selected) pad. These pads divide the rate in increments of 0.5 from 0.5 to 4. So, in order, the *forward* rate options would be 0.5, 1, 1.5, ..., 4. And, in order, the *reverse* rate options would be -4, -3.5, -3, ..., -0.5. The dimly lit pad indicates a rate magnitude of 1.
