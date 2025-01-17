@@ -2,12 +2,12 @@
 
 // @import "plugins/numbered";
 
-.center-image-80 {
+.center-image-75 {
   img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%
+    width: 75%
   }
 }
 
@@ -18,5 +18,13 @@
     margin-right: auto;
     width: 50%;
   }
-  
+}
+
+.center-image-25 {
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%
+  }
 }
