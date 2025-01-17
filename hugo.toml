@@ -9,7 +9,7 @@
 # when you're ready, publish: 
 # https://gohugo.io/hosting-and-deployment/hosting-on-github/
 
-baseURL = 'https://airportpeople.github.io'
+baseURL = 'https://airportpeople.github.io/ap'
 languageCode = 'en-us'
 title = 'a place to share pixels'
 theme = 'hugo-book'
@@ -17,7 +17,7 @@ theme = 'hugo-book'
 [params]
   BookTheme = 'dark'
   BookFavicon = 'groovepaper.png'
-  BookRepo = 'https://github.com/airportpeople/dots'
+  BookRepo = 'https://github.com/airportpeople/ap'
   math = false
 
 [markup.goldmark.renderer]
