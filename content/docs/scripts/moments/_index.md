@@ -44,17 +44,21 @@ Here, the four dots represent the four voices. When the `input_type` is set to *
 
 ## grid
 
-This script is compatible with either 128-pad monome grids, or the 64-pad Launchpad. There is a left 64-pad section, and a right 64-pad section.
+This script is compatible with either 128-pad monome grids, or the 64-pad Launchpad. There is a left 64-pad section, and a right 64-pad section. Each section has a top and bottom portion with four rows. Each row corresponds to a voice (or, in the UI, a dot).
 
 **left section**
 
 {{< figure src="moments_1.png" class="center-image-50">}}
 
-The top and bottom portions contain four rows. Each row corresponds to a voice (or, in the UI, a dot).
+Here, the top portion is the **level** (lowest on the left, highest on the right), and the bottom is the **pan**. The pan pads are in increments of 0.25, where hard left is -1 and hard right is 1. So, shown here, the second voice is at (left) -0.5. Select the bright pad to revert back to center panning (0).
 
 **right section**
 
 {{< figure src="moments_2.png" class="center-image-50">}}
 
 - The time between dot moves is determined by a fraction of the `CLOCK` tempo. The 8 pads correspond to $\displaystyle \frac{1}{k}$ of a beat for $k = 8, 7, ..., 1$. I.e., faster movements are on the left, and slower less frequent movements are on the right.
-- The rate can be forward or reverse. To toggle between the two, select the bright (selected) pad. These pads divide the rate in increments of 0.5 from 0.5 to 4. So, in order, the *forward* rate options would be 0.5, 1, 1.5, ..., 4. And, in order, the *reverse* rate options would be -4, -3.5, -3, ..., -0.5. The dimly lit pad indicates a rate magnitude of 1.
+- The rate of a voice can be forward or reverse. To toggle between the two, select the bright (selected) pad. These pads divide the rate in increments of 0.5 from 0.5 to 4. So, in order, the *forward* rate options would be 0.5, 1, 1.5, ..., 4. And, in order, the *reverse* rate options would be -4, -3.5, -3, ..., -0.5. The dimly lit pad indicates a rate magnitude of 1.
+
+## other parameters
+
+See `PARAMS` for more parameters. Play around with them; see what happens! :)
