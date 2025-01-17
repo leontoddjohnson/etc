@@ -2,6 +2,3 @@ drafts
 public
 .DS_Store
 .hugo_build.lock
-
-# theme submodules
-themes/*
