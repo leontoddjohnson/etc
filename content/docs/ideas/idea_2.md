@@ -1,8 +1,7 @@
 ---
 title: watercolors
-weight: 2
 ---
 
-# first idea
+# what if you ...
 
 make music upside down.

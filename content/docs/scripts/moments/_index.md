@@ -1,6 +1,6 @@
 ---
 title: moments
-bookCollapseSection: true
+bookCollapseSection: false
 math : true
 ---
 
@@ -8,10 +8,53 @@ math : true
 
 moments that once were.
 
+{{% hint warning %}}
+**This script is in beta**, but I think it's mostly there. Got a few homies checking for bugs.
+{{% /hint %}}
+
+## set up
+
+**requirements**
+
+- norns
+- input (mono or stereo)
+- grid (optional, but recommended)
+
+**in maiden ...**
+
+```
+;install https://github.com/airportpeople/moments
+```
+
 ## basic idea
 
-constantly record the last $n$ seconds of ...
+Constantly record the last `loop length` seconds of input, and allow four voices to play back from (four) random points within that loop.
+
+- The voices will only move if the amplitude of the input goes above a threshold. This creates a strange sort of lifelike feel.
+- The random starting point for each voice is updated (randomly within the buffer) based on a fraction of the tempo set in `PARAMS/CLOCK`. Each voice has it's own "move rate".
 
 ## ui
 
-The total loop length can be updated using either knob (between 1 and 20? seconds).
+{{< figure src="/moments_example.png" class="center-image">}}
+
+- The total loop length can be updated using either **K2** or **K3**
+- Adjusting either **E2** or **E3** will update the loop length
+
+Here, the four dots represent the four voices. When the `input_type` is set to *mono*, the four voices read from the same buffer. Otherwise, when `input_type` is set to *stereo*, voices 1 and 2 (the top two dots) read from the left input, and voices 3 and 4 read from the right input.
+
+## grid
+
+This script is compatible with either 128-pad monome grids, or the 64-pad Launchpad. There is a left 64-pad section, and a right 64-pad section.
+
+**left section**
+
+{{< figure src="/grid/moments_1.png" class="center-image-80">}}
+
+The top and bottom portions contain four rows. Each row corresponds to a voice (or, in the UI, a dot).
+
+**right section**
+
+{{< figure src="/grid/moments_2.png">}}
+
+- The time between dot moves is determined by a fraction of the `CLOCK` tempo. The 8 pads correspond to $\displaystyle \frac{1}{k}$ of a beat for $k = 8, 7, ..., 1$. I.e., faster movements are on the left, and slower less frequent movements are on the right.
+- The rate can be forward or reverse. To toggle between the two, select the bright (selected) pad. These pads divide the rate in increments of 0.5 from 0.5 to 4. So, in order, the *forward* rate options would be 0.5, 1, 1.5, ..., 4. And, in order, the *reverse* rate options would be -4, -3.5, -3, ..., -0.5. The dimly lit pad indicates a rate magnitude of 1.

@@ -3,4 +3,4 @@ bookFlatSection: true
 title: ideas
 ---
 
-Short form words
+a few words
