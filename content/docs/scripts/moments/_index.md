@@ -50,14 +50,15 @@ This script is compatible with either 128-pad monome grids, or the 64-pad Launch
 
 {{< figure src="moments_1.png" class="center-image-50">}}
 
-Here, the top portion is the **level** (lowest on the left, highest on the right), and the bottom is the **pan**. The pan pads are in increments of 0.25, where hard left is -1 and hard right is 1. So, shown here, the second voice is at (left) -0.5. Select the bright pad to revert back to center panning (0).
+- **level**. With level, the lowest is on the left, highest on the right. If you push the currently selected level (i.e., the highest bright pad), the level will revert to 0, and all pads in that row will dim. Once you select a new level, that will be set.
+- **pan**. The pan pads are in increments of 0.25, where hard left is -1 and hard right is 1. So, shown here, the second voice is at (left) -0.5. Select the bright pad to revert back to center panning (0).
 
 **right section**
 
 {{< figure src="moments_2.png" class="center-image-50">}}
 
-- The time between dot moves is determined by a fraction of the `CLOCK` tempo. The 8 pads correspond to $\displaystyle \frac{1}{k}$ of a beat for $k = 8, 7, ..., 1$. I.e., faster movements are on the left, and slower less frequent movements are on the right.
-- The rate of a voice can be forward or reverse. To toggle between the two, select the bright (selected) pad. These pads divide the rate in increments of 0.5 from 0.5 to 4. So, in order, the *forward* rate options would be 0.5, 1, 1.5, ..., 4. And, in order, the *reverse* rate options would be -4, -3.5, -3, ..., -0.5. The dimly lit pad indicates a rate magnitude of 1.
+- **dot move time**. The time between dot moves is determined by a fraction of the `CLOCK` tempo. The 8 pads correspond to $\displaystyle \frac{1}{k}$ of a beat for $k = 8, 7, ..., 1$. I.e., faster movements are on the left, and slower less frequent movements are on the right.
+- **rate**. The rate of a voice can be forward or reverse. To toggle between the two, select the bright (selected) pad. These pads divide the rate in increments of 0.5 from 0.5 to 4. So, in order, the *forward* rate options would be 0.5, 1, 1.5, ..., 4. And, in order, the *reverse* rate options would be -4, -3.5, -3, ..., -0.5. The dimly lit pad indicates a rate magnitude of 1.
 
 ## other parameters
 
