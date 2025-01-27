@@ -11,7 +11,7 @@
 
 baseURL = 'https://leontoddjohnson.github.io/etc'
 languageCode = 'en-us'
-title = 'ltj / etc'
+title = 'ltj'
 theme = 'hugo-book'
 
 [params]
