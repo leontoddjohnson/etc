@@ -28,3 +28,16 @@
     width: 25%
   }
 }
+
+// Extra space for big screens
+@media screen and (min-width: $container-max-width) {
+  .book-page,
+  .book-menu .book-menu-content,
+  .book-toc .book-toc-content {
+    padding: $padding-16;
+  }
+
+  .container {
+    float: left;
+  }
+}
