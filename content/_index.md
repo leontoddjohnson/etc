@@ -4,8 +4,8 @@ type: docs
 booktoc: false
 ---
 
-This is a place to share pixels.
+[My](https://leontoddjohnson.com) initials are **ltj**.
 
-The [scripts](/docs/scripts) are for monome norns. The [ideas](/docs/ideas) are short, and the [blog](/posts) articles are long.
+This is a place to share pixels: docs, ideas, teaching, **et cetera**.
 
 [Here](https://airportpeople.bandcamp.com/) is a place to share sounds.
