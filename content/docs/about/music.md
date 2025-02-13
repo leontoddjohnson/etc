@@ -4,4 +4,6 @@ title: music
 
 # music
 
-You can find my music [here](https://airportpeople.bandcamp.com/).
+All my music and merch can be found [here](https://airportpeople.bandcamp.com/).
+
+See [my main site](https://leontoddjohnson.com) for info.

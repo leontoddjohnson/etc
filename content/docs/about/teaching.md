@@ -1,10 +1,13 @@
 ---
 title: teaching
+booktoc: false
 ---
 
 # teaching
 
-I'm working on building out a bit more of an explanation here ... Essentially, I teach the following courses at IUI:
+I'm working on building out this page a bit more ...
+
+For now, I'll just share the courses I teach at IUI:
 
 - Intro to Data Science Programming
 - Mathematics for Data Science
