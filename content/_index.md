@@ -1,9 +1,15 @@
 ---
-title: etc
+title: about
 type: docs
 booktoc: false
 ---
 
-[My](https://leontoddjohnson.com) initials are **ltj**.
+# about
 
-This site is a collection of my docs, ideas, teaching, **etc**.
+leon todd johnson.
+
+day job = [lecturer](https://luddy.indianapolis.iu.edu/contact/profile/leon-johnson) in data science at IU – Indianapolis.
+
+the rest = [musician](https://leontoddjohnson.com), reader, thinker, spouse, father-to-be, human, **etc**.
+
+I use this website to share written content related to these things.
