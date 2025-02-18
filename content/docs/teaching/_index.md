@@ -1,7 +1,8 @@
 ---
 title: teaching
-bookCollapseSection: true
+bookFlatSection: true
 booktoc: false
+weight: 1
 ---
 
 # teaching

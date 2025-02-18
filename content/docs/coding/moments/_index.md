@@ -23,7 +23,7 @@ moments that once were.
 **in maiden ...**
 
 ```
-;install https://github.com/airportpeople/moments
+;install https://github.com/leontoddjohnson/moments
 ```
 
 ## basic idea
