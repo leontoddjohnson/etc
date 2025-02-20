@@ -9,7 +9,7 @@
 # when you're ready, publish: 
 # https://gohugo.io/hosting-and-deployment/hosting-on-github/
 
-baseURL = 'https://leontoddjohnson.github.io/etc'
+baseURL = 'http://leontoddjohnson.online'
 languageCode = 'en-us'
 title = 'ltj'
 theme = 'hugo-book'

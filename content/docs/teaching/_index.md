@@ -14,4 +14,4 @@ I'm working on building out this page a bit more ... For now, I'll just share th
 - Statistics with R
 - Data Visualization Design, Evaluation, and Analysis
 
-[Here is my CV](cv_2025.pdf), and I'll share teaching-related blog posts under the "teaching" tag [in my journal](/etc/tags/teaching).
+[Here is my CV](cv_2025.pdf), and I write about my teaching [in my journal](/tags/teaching).
