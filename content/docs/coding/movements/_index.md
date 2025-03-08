@@ -1,8 +1,28 @@
 ---
-title: grid
-weight: 5
-booktoc: false
+title: movements
+bookCollapseSection: false
+math : true
 ---
+
+# movements
+
+{{% hint danger %}}
+**This script is under construction.** Right now, these docs are 
+{{% /hint %}}
+
+This script is a sequencer of samples or recorded input. It requires a grid, and that's probably the best place to start ...
+
+# sample functionality
+
+Probably, the best way to get to understand the sample functionality is to start with the config page, and work your way backward ... When playing, it's easier to think the other way around.
+
+## parameters
+
+...
+
+### filter
+
+Be careful when setting the pattern ... 20k Hz, when swapped to high pass will essentially remove the sound. Keeping things at low pass (for the most part) will act as expected. Otherwise, if you want to swap, keep the filter parameter patterns on values other than 20k.
 
 # grid navigation
 
