@@ -127,7 +127,7 @@ For *both* the **sample** and **tape** functionalities, there are four grid page
 
 For the most part, these pages are the same for both functionalities, with small deviations for **tape**. *All* grid pages will share the same navigation bar on the lower right (with **mode** and **ALT** pads included).
 
-{{< figure src="main_grid.png" class="center-image-75">}}
+{{< figure src="main_grid.svg" class="center-image-75">}}
 
 Here, **S** corresponds to **sample** and **T** corresponds to **tape**. For each of these, you have the following:
 
@@ -152,7 +152,7 @@ When you switch between **sample** and **tape** functionalities on the grid, the
 
 For both **sample** and **tape**, the best place to start is often with the **config** page.
 
-{{< figure src="sample_config_1.png" >}}
+{{< figure src="sample_config_1.svg" class="center-image-85">}}
 
 #### track parameters
 
@@ -165,8 +165,14 @@ For both **sample** and **tape**, the best place to start is often with the **co
 
 #### bank
 
-- Select samples in the **bank** region. The selected pad will not light up until you hold the currently selected `bank` pad in the **bank selection** region.
-- The dimmest pads indicate pads *with* samples (audio files) that have been loaded into the bank. Unlit pads are "empty".
+- Select samples in the **bank** region. The currently selected pad will light up when you hold the currently selected `bank` pad in the **bank selection** region.
+- There are 4+1 levels of brightness here:
+  1. (Only when you hold the current `bank` pad) The selected sample will be brightest.
+  2. When a sample is part of the current `track_pool_cue` (not yet loaded), it will be slightly less bright.
+  3. When it is loaded into the current `track_pool`, it will be slightly less bright.
+  4. When a sample is loaded into some other track, it will be slightly less bright.
+  5. Lastly, if there is an audio file loaded into that sample, it will be most dim.
+- If you hold the pad for a sample that is loaded into another track, that track pad will light up in the **track selection** region. In these cases, that sample is "used up", and can't be assigned elsewhere until it's relieved from the `track_pool` with **ALT** + `sample` **pad**.
 - You can dictate the row/column for audio files in a bank by using a `<row><col>*...` naming convention, where `*` is `" "`, `"-"` or `"_"`. For example, the file with the name *23_sound.wav* would be loaded into the second row and the third column.
   - Duplicate indices will be overwritten by the latest of the two.
   - If the indices are invalid, movements will load the samples in order, left-to-right, top-to-bottom.
@@ -180,17 +186,57 @@ For both **sample** and **tape**, the best place to start is often with the **co
 
 #### play mode
 
-- For a sample (or slice), the **play mode** is different from **PLAY MODE**. It represents the way a sample/slice will be played. For a selected `sample`, we have two sets of **play mode** options
+- For a sample (or slice), the **play mode** is different from **PLAY MODE**. It represents the way a sample/slice will be played.
+- For a selected `sample`, we have two sets of **play mode** options
   - Streaming Samples: `"Loop"  "Loop"  "1-Shot"  "Gated"`
   - Buffer Samples: `"Loop"  "Inf. Loop"  "1-Shot"  "Gated"`
 
 #### bank selection
 
 - Select one of the four banks here.
-- 
+- If a `bank` has audio files loaded into it, it will be slightly brighter than the rest.
 
+#### sample range
+
+- The **sample range** shows the range of the slice that is played. It makes more sense when seen in conjunction with the **sample slice** display.
+- Selecting a pad in this range dictates the `start` time for the playable range of the sample.
+- Hold **ALT** while selecting a pad to choose the `end` time for the playable range.
+
+### sample sequence
+
+The **sample seq** page is an interface for the transports for the 7 **sample** tracks.
+
+{{< figure src="sample_seq.svg" class="center-image-85">}}
+
+#### track rows
+
+- The first 7 rows correspond to the 7 sample `track`s. When a transport is playing, movements will cycle through the samples loaded in the `track_pool` as long as a `step` is active.
+- There are 4 brightness levels here:
+  1. The current `step` will be the brightest in a row.
+  2. Slightly less bright are inactive/"loaded" steps. (Of course, unlit pads are "skipped")
+  3. Slightly less than that are pads to indicate an "island". The transport in an island will only loop within that range until the island is removed.
+  4. The dimmest pads indicate the selected row/selected `track`.
+- To select a track, hold **ALT** and push a pad in that row. The selected track spans across the 4 **sample** pages.
+- To create an island, hold the first step of the island, and then the last step of the island.
+  - To remove this, do the same with the first step of the bar and the last step of the bar.
+- In **PLAY MODE**:
+  - selecting a pad forces the transport to that step.
+  - hold **ALT** and a pad to force all **sample** transports to that step.
+
+#### pattern bars
+
+- The sequencer for each track is completely independent of the rest. It can have a different length and a different time between steps.
+- Each sequence is a series of 1-8 pattern `bar`s, where a `bar` is 16 steps. If a pattern `bar` has a step loaded into it, then that bar *and the ones before it* contribute to the sequence. So, if I activate step 10 and step 36, then that track will have a sequence of length $3 \cdot 16 = 48$ steps.
+- There are 3 brightness levels for the pattern bars:
+  1. The current `bar` is the brightest.
+  2. If the current track transport is in a pattern bar, that bar will be slightly less bright.
+  3. The dimmest pads have active steps.
+- In **PLAY MODE**, the page will "follow" the transport for the current track.
+- You can copy a pattern (along with the parameter patterns) from one bar to another bar by holding **ALT + the "copy" bar + the "paste" bar**.
 
 ## tape pages
+
+
 
 ### tape config
 

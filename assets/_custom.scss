@@ -2,6 +2,15 @@
 
 // @import "plugins/numbered";
 
+.center-image-85 {
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%
+  }
+}
+
 .center-image-75 {
   img {
     display: block;
