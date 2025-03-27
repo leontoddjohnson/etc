@@ -60,25 +60,25 @@ transport | the mechanism moving a sequence from step to step
 
 *Refer to the grid navigation bar and the **sample config** page, below.*
 
-1. Load some samples from a folder into a bank with **K2** on the **sample main** display.
+1. Load some samples from a folder into a bank with **K2** on the **track pool** display.
 2. On the **sample config** (grid) page, load samples onto the selected track *cue* by holding **ALT** + the sample pad.
 3. Once you have samples you'd like to load onto a track, hold **ALT** + the track pad. When this track's sequence is played, it will cycle through these samples.
 4. Add some steps on the **sample seq** page. Maybe adjust some levels on the **sample levels** page (select the **S1** pad twice).
 5. Play with the clock time for each track on the **sample time** page, and control track levels on the **sample config** page or the **sample params** display.
-6. Navigate to the **delay** display section with **K1 + E1**, and adjust the **sample** delay on the corresponding display.
+6. Navigate to the **sample delay** display section with **K1 + E1**, and adjust the **sample** delay on the corresponding display.
 
 ### tape
 
 *Refer to the grid navigation bar and the **tape config** page, below.*
 
 1. Choose a buffer with load some audio into a partition:
-    - Option 1: Load a file at the current slice with **K2** on the **tape main** display.
-    - Option 2: Record into the current slice with **K2** on the **tape slice** display.
+    - Option 1: Load a file at the current slice with **K2** on the **slice pool** display.
+    - Option 2: Record into the current slice with **K2** on the **tape waveform** display.
 2. On the **tape config** (grid) page, load slices onto the selected track *cue* by holding **ALT** + the slice pad.
 3. Once you have slices you'd like to load onto a track, hold **ALT** + the track pad. When this track's sequence is played, it will cycle through these slices.
 4. Add some steps on the **tape seq** page. Maybe adjust some levels on the **tape levels** page (select the **T1** pad twice).
 5. Play with the clock time for each track on the corresponding **tape time** page, and control track levels on the **tape config** page or the **tape params** display.
-6. Navigate to the **delay** display section with **K1 + E1**, and adjust the **tape** delay on the corresponding display.
+6. Navigate to the **tape delay** display section with **K1 + E1**, and adjust the **tape** delay on the corresponding display.
 
 ## sample
 
@@ -105,7 +105,7 @@ The **tape** functionality is meant for playing, recording, and sequencing slice
 - A recording can only be made to a `slice`, which can only exist within a `partition`. (Of course, the beginning and end of any slice can be adjusted, within the bounds of the partition.)
 - **tape** can record from the Norns input, or the **sample** functionality, or both. You can set this by adjusting the `tape_audio_in` parameter.
 - You can record to a slice in two ways:
-  - "on demand" using the **tape slice** display
+  - "on demand" using the **slice waveform** display
   - "in time" with the sequence using the **tape seq** grid page.
 
 ## delay
@@ -203,7 +203,7 @@ For both **sample** and **tape**, the best place to start is often with the **co
 
 #### sample range
 
-- The **sample range** shows the range of the slice that is played. It makes more sense when seen in conjunction with the **sample slice** display.
+- The **sample range** shows the range of the slice that is played. It makes more sense when seen in conjunction with the **sample waveform** display.
 - Selecting a pad in this range dictates the `start` time for the playable range of the sample.
 - Hold **ALT** while selecting a pad to choose the `end` time for the playable range.
 
@@ -315,7 +315,7 @@ The **tape seq** page takes the **sample seq** and adds the ability to arm recor
 - Select a step in the 6th row to arm recording *at* that step. As long as the step corresponds to a step in the *focused* track, movements will record to the slice corresponding to that track.
   - This applies to stereo track pairs as well.
   - When recording, you'll hear the sound of the slice being overdubbed based on the `pre` level set for that track. For more on this, see the [parameters](#parameters) section.
-  - The 7th row shows recording progress for the slice (it is also indicated in the **tape slice** display).
+  - The 7th row shows recording progress for the slice (it is also indicated in the **slice waveform** display).
 
 ### tape levels
 
@@ -343,9 +343,27 @@ For all sample displays, the top navigation bar indicates the following:
 
 `TRACK • BANK • filename of currently selected SAMPLE`
 
-### sample pools
+Use **E1** on its own to scroll through the following displays.
 
-The first **sample** display is the track pool display. On the right side is a list of 
+### track pool
+
+The first **sample** display is the **track pool** display. On the right side is the list of audio files corresponding to samples in the `track_pool_cue`. These are "on deck" to be added to the `track_pool`, whose audio files are listed in brighter text on the left side.
+
+- **K2** on this page will enter the file selection, where you can pick a folder to load into the current bank for the focussed track.
+  - After a folder is loaded, the folder name will show up at the bottom of this page (specifically for the selected bank).
+- The order of the audio files on this page correspond to the order of the `sample`s in the `track_pool` (and `track_pool_cue`). To ensure a particular order, make sure to select (or deselect) samples on the grid accordingly.
+
+### sample waveform
+
+The 
+
+### track params
+
+...
+
+### sample envelope
+
+... this only applies to samples set to "Gated" ??
 
 ## tape displays
 
@@ -496,6 +514,6 @@ The `interval` parameter defines what note of the scale to play when `scale` is 
 # tips and tricks
 
 - If you want the parameter *pattern* to drive the true values, just leave the track values as either the maximum or "true middle" value.
-- 
+- Load files into **tape** to slice them up into 32 equally sized slices, and sequence them as you like.
 
 # footnotes
