@@ -40,6 +40,7 @@ term | definition
 :---: | :---
 page | a *grid* page, navigable by the 6 nav keys on the lower right corner of the grid
 display | a display on the norns *screen*
+transport | the mechanism moving a sequence from step to step
 `pattern` | a collection of steps for triggering or defining parameters
 `bar` | one of eight partitions of 16 steps
 `sample` | an audio file loaded into a **sample** bank
@@ -102,6 +103,7 @@ The **tape** functionality is meant for playing, recording, and sequencing slice
 - The `track_pool` and `track_pool_cue` for **tape** behave the same as they do for the **sample** functionality, above. Just swap out the word "sample" with "slice", and "bank" with "partition".
 - Each `partition` consists of two `buffer`s, which can be thought of as either a *single* stereo buffer or *two* separate mono buffers to swap between. You can assign tracks to record/play as mono from either buffer, or as stereo from both.
 - A recording can only be made to a `slice`, which can only exist within a `partition`. (Of course, the beginning and end of any slice can be adjusted, within the bounds of the partition.)
+- **tape** can record from the Norns input, or the **sample** functionality, or both. You can set this by adjusting the `tape_audio_in` parameter.
 - You can record to a slice in two ways:
   - "on demand" using the **tape slice** display
   - "in time" with the sequence using the **tape seq** grid page.
@@ -195,6 +197,9 @@ For both **sample** and **tape**, the best place to start is often with the **co
 
 - Select one of the four banks here.
 - If a `bank` has audio files loaded into it, it will be slightly brighter than the rest.
+- Each bank has its own patterns (**sample** trigger patterns and parameter patterns). You can copy *all* pattern steps and parameter pattern values of the current `track` from one bank to another bank by holding **ALT + the "from" bank + the "to" bank**.
+  - This only copies pattern steps, not sample selections.
+  - This will overwrite the pattern(s) on the "to bank"
 
 #### sample range
 
@@ -234,25 +239,113 @@ The **sample seq** page is an interface for the transports for the 7 **sample** 
 - In **PLAY MODE**, the page will "follow" the transport for the current track.
 - You can copy a pattern (along with the parameter patterns) from one bar to another bar by holding **ALT + the "copy" bar + the "paste" bar**.
 
+### sample levels
+
+Parameter levels for each **sample** step can be adjusted in the **sample levels** page.
+
+{{< figure src="sample_levels.svg" class="center-image-85">}}
+
+- The top row shows the sequence for the selected track, and it can be adjusted in the same way as any row in the **sample sequence** page.
+- When you add a new step to the sequence, the parameter value will default to the track value.
+- The middle region allows for parameter adjustment for each step. More on parameter adjustment in the [parameter](#parameters) section, below.
+- The bottom navigation row remains the same as the rest of the grid pages.
+- In **PLAY MODE**, the **pattern bars** becomes the **track param selection** region seen in the [sample config](#sample-config) section above. In this mode, you can use that region to select the parameter to focus on.
+
+{{% hint warning %}}
+Keep in mind, the **levels** page reflects **relative** values based on the track level. The "final" step value will depend on these levels and the `track` level. For more on this, see the [squelching](#squelching) section.
+{{% /hint %}}
+
+### sample time
+
+Each track proceeds on its own independent transport. These transports move from one step to the next based on either (a) a fraction of a *beat* (from the tempo set in **PARAMS/CLOCK**), or (b) a fraction of a *second*. For **sample**, these `clock_fraction`s can be adjusted on the **sample time** page.
+
+{{< figure src="sample_time.svg" class="center-image-85">}}
+
+- Each of the first 7 rows correspond to a **sample** track.
+- The first column toggles between playing and not playing a track sequence.
+- The second column dictates whether the sequence time is based on the beat or based on seconds.
+- Columns 4-16 indicate the `clock_fraction`, or the fraction of a beat or second to exist between steps:
+  - `1/8, 1/7, 1/6, 1/5, 1/4, 1/3, 1/2, 1, 2, 3, 4, 5, 6`
+- Hold one pad, and select another one in the same row, and you'll create a `clock_fraction_pool`. The time between steps will be *randomly* chosen from this range, for each step.
+  - Select any other pad in the row to clear the pool.
+- The dimly highlighted column indicate "compatible" fractions. If all your `clock_fraction` selections are in one of these columns, you'll find the syncopation to be relatively agreeable.
+  - The fractions `1/8, 1/4, 1/2, 1, 2, 4` are highlighted upon entering the page. These complement the typical $4/4$-type time.
+  - Hold **ALT**, and you'll find that the fractions `1/6, 1/3, 1, 3, 6` are highlighted. These complement a sort of $3/4$-type time.
+
 ## tape pages
 
+For the most part, **tape** pages and **sample** grid pages look and function the same way, with two main differences:
 
+- **tape** only deals with four tracks while **sample** deals with 7 tracks.
+- **tape** incorporates buffer and recording management.
+
+{{% hint info %}}
+The script was written with **tape** tracks being tracks 8-11. But, you can safely think of them as "tape 1-4". In this documentation, we'll use the 8-11 notation.
+{{% /hint %}}
 
 ### tape config
 
-...
+The **tape config** page is very similar to the **sample config** page.
 
-Notice that the slice start/end times can only be adjusted "in the vicinity" of the current slice. I.e., you'll notice that it's not easy to use the partition range to "move" a slice anywhere in the partition. This is to keep slices in positions that *for the most part* divide the partition up, in order.
+{{< figure src="tape_config.svg" class="center-image-85">}}
+
+- The **track param adjustment**, **track param selection**, and **track selection** regions function the same way as their complements on the **sample** side.
+- **PLAY MODE** also functions the same way.
+- Instead of `banks` (of audio files), the **tape** functionality offers four `partitions` of the stereo buffer. Each partition is divided into 32 `slices`. In the same way you can select `samples` in the **sample** functionality, you select `slices` with the **tape**.
+- **play mode** and **partition selection** function the same way as their complements on the **sample side**
+- The **slice locator** indicates where in the partition the selected `slice` exists. You can use this locator in the same way you might use the **sample range** on the **sample config** page.
+  - That is, you can choose where the slice starts and stops (using **ALT** for the latter).
+- The **buffer selection** region dictates whether a track is assigned to the left buffer (*bright*) or the right buffer (*dim*).
+- You can assign `stereo tracks` by assigning buffers and `pan` accordingly:
+  - The only possible stereo pairs are **tape** tracks `8-9` and tracks `10-11`, where the lower track number is *LEFT*.
+  - To assign a pair a stereo, set the panning for the two tracks as hard left, and hard right, respectively. Also, make sure that the buffers are set accordingly (lower to the left, and higher to the right).
+  - The *left* track is the one that "drives" the stereo pair. E.g., if you want to sequence the `8-9` stereo pair, you would set the tracks as described above, and *only* adjust/sequence `track 8`. In this way, movements can only accommodate two stereo tracks.
+
+{{% hint warning %}}
+You'll notice it's not easy to use the **slice locator** to "move" a slice anywhere in the partition. I.e., the slice start/end times can only be adjusted "in the vicinity" of the current slice. This is to keep slices in positions that *for the most part* divide the partition up, in order.
+{{% /hint %}}
+
+### tape sequence
+
+The **tape seq** page takes the **sample seq** and adds the ability to arm recording *at* a step.
+
+{{< figure src="tape_seq.svg" class="center-image-85">}}
+
+- The first four rows correspond to the four **tape** tracks. These behave the same way as the rows in the **sample seq** page.
+- Select a step in the 6th row to arm recording *at* that step. As long as the step corresponds to a step in the *focused* track, movements will record to the slice corresponding to that track.
+  - This applies to stereo track pairs as well.
+  - When recording, you'll hear the sound of the slice being overdubbed based on the `pre` level set for that track. For more on this, see the [parameters](#parameters) section.
+  - The 7th row shows recording progress for the slice (it is also indicated in the **tape slice** display).
+
+### tape levels
+
+The **tape levels** page functions the same way as the **[sample levels](#sample-levels)** page.
+
+### tape time
+
+The **tape time** page functions the same way as the **[sample time](#sample-time)** page. The only difference with **tape** is there are only four rows for the four tracks.
 
 # ui
 
 ## navigation
 
-...
+The UI for movements is divided into three display "sections":
+
+1. **sample**
+2. **tape**
+3. **delay**
+
+At the top left of the Norns screen for every section are three vertical bars, the brightest of which indicates which section is active. To navigate between sections, use **K1 + E1** (hold the key, turn the knob). The change in section will reflect on the grid.
 
 ## sample displays
 
-...
+For all sample displays, the top navigation bar indicates the following:
+
+`TRACK • BANK • filename of currently selected SAMPLE`
+
+### sample pools
+
+The first **sample** display is the track pool display. On the right side is a list of 
 
 ## tape displays
 
@@ -274,32 +367,135 @@ Both functionalities share the following parameters:
 - scale
 - interval
 
-These are adjustable at both the track level and the step level. In addition to these, the **sample** functionality has an option to add *noise* to a sample, and the **tape** functionality has an option to set the *overdub* (or "pre"/"preserve") level for recording, and loop-*crossfade* time for slices. These three parameters are adjustable only at the track level.
+These are adjustable at both the track level and the step level. In addition to these, the **sample** functionality has an option to add *noise* to a sample, and the **tape** functionality has an option to set the *overdub* (or "pre"/"preserve") level for recording, and loop-*crossfade* time for slices. These three parameters can be set only at the track level.
 
-Samples are loaded onto **sample** tracks, and recording slices are loaded into **tape** tracks. These samples/slices are triggered in a sequence by a pattern of selected steps. Further, each step can have its own set of parameter settings (for the 7 above parameters); so, tracks have parameter patterns so their parameter values can can change from step to step.[^fn:interval]
+Samples/Slices are triggered in a sequence by a pattern of selected steps. Further, each step can have its own set of parameter settings (for the 7 above parameters), so parameter values can can change from step to step.
 
-[^fn:interval]: Right now, an exception to the parameter pattern rule is *interval*. To prevent playback sounds from getting overly complex and dissonant, the *interval* value remains constant based on the track selection. Adjusting an *interval* step is equivalent to adjusting the value across all steps for that track. This also encourages the user to record separate pitches *individually* to improve sound quality.
+Lastly, when you make adjustments to the track level, you will also make proportional adjustments to each step based on a combination of the parameter pattern and the track level itself; we call this "squelching". *Note: squelching does not apply to the `interval` parameter.*
 
-Lastly, when you make adjustments to the track level, you will also make proportional adjustments to each step based on the parameter pattern and the track level itself; we'll call this "squelching".
+## squelching
+
+There are two basic kinds of squelching: unidirectional and bidirectional.
+
+### unidirectional
+
+Unidirectional squelching is applied to **amplitude**, **filter**, **delay**, and **probability**. Essentially, the track value dictates the maximum value for a scale, and then the parameter pattern value dictates the value within the scale.
+
+{{< figure src="squelch_1.svg" class="center-image-50">}}
+
+For example, if the `track` level value for **amplitude** is set at 0.5 and the parameter pattern level is set to 0.8, then the final value for that step will be 80% of the way to 0.5, or 0.4.
+
+### bidirectional
+
+Alternatively, bidirectional squelching is applied to **panning** and **scale**. In this kind of squelching, sample step values fall within a proportional distance from a new center.
+
+{{< figure src="squelch_2.svg" class="center-image-50">}}
+
+In other words, the **track value** becomes the new "center", and the parameter pattern value translates to the new scale.
 
 ## amplitude
 
-This is the amplitude (volume) of the playing sample/slice.
+`amp` is the amplitude (volume) of the playing sample/slice. It's represented on the grid as filling from left-to-right on the **config** page, and from bottom to top on the **levels** page.
 
-**Squelching:**
+{{< figure src="param_amp.svg" class="center-image-85">}}
 
-The track amplitude level, $v_{\text{max}}$, is the maximum amplitude allowed. A pattern step value of $v$ on a scale between $[0, 1]$ will be squelched to one on the scale between $[0, v_{\text{max}}]$. 
+- The bottom row (on the left side) will be *blank* for `amp`. From another parameter focus, *re*-select the pad to revert to the `amp` parameter.
+  - The grid diagram in the panning section shows the other parameter options.
+- To set the amplitude to 0, *re*-select the currently set value. Otherwise, the pads correspond to the following levels (in decibels):
+  - `-24 | -18 | -12 | -6 | -3 | 0`
 
 ## panning
 
-...
+The `pan` value is bidirectional, and it's illustrated from left-to-right on the **config** page, and from bottom-to-top on the levels page (respectively).
+
+{{< figure src="param_pan.svg" class="center-image-85">}}
+
+- The values on the grid correspond to the following pan values:
+  - `-1 | -2/3 | -1/3 | 1/3 | 2/3 | 1`
+- Selecting the "currently set" value will revert the panning back to 0.
+- The squelch "width" for `pan` is 0.5 on either side. For example, if a *step* level is set to -1 and the *track* level is set to 0.5, then the final level at that step will be 0.
 
 ## filter
 
-Be careful when setting the pattern ... 20k Hz, when swapped to high pass will essentially remove the sound. Keeping things at low pass (for the most part) will act as expected. Otherwise, if you want to swap, keep the filter parameter patterns on values other than 20k.
+The `filter` parameter is unidirectional, but it can be defined from "bottom to top" or from "top to bottom" depending on one of two filter types:
+
+- `"Low Pass"` (Default)
+- `"High Pass"`
+
+{{< figure src="param_filter.svg" class="center-image-85">}}
+
+- To swap between the two filter types, *re*-select the most extreme value. So, for track 2 in the example above, if we push the third pad from the left, this filter will change from high pass to low pass.
+- The track's filter type determines the filter type for all steps. That is, if the track is set to one filter type, then all steps will be of the same type.
+  - This is made apparent in the **levels** page(s), as the direction of the highlighted pads will always match the direction of the track
+- For both **sample** and **tape**, you can adjust the `filter_resonance` for each track in the **PARAMS** menu.
+- As long as all pads are bright, then you are getting the full range. In this case, just be careful to remember which type you are dealing with when making adjustments on the fly.
+- The values on the grid correspond to the following filter frequencies, in Hertz:
+  - `100 | 500 | 1000 | 5000 | 10000 | 20000`
+
+{{% hint info %}}
+Good rule of thumb: Before adjusting `filter` pattern steps for a track, *pick a filter type, and stick with it*. Suppose you have very high frequencies set with `"Low Pass"`; swapping to `"High Pass"` will essentially remove the sound. Alternatively, if you plan on swapping track filter types, keep the filter parameter patterns at values closer to the middle.
+{{% /hint %}}
+
+## delay
+
+The **sample** and **tape** functionalities both have their own delay *bus*. The **sample** delay is mono, and the **tape** delay is stereo. Each track can be independently sent to a bus based on their `delay` parameter level. The `delay` parameter sets an independent send level for each track (and optionally, for each step).
+
+This is a unidirectional parameter, and it manifests on the grid in the same way `amp` does.
+
+- By default, the `delay` for each track is set to 0. 
+- You can adjust the `delay time` and the `delay feedback` for each delay bus. I.e., ther eis ...
+- T, and you can adjust both time and feedback independently for the left and right channels. The **tape** delay also has an overall level.
+- All delay parameters can be set in the **PARAMS** menu, or on the corresponding **tape delay display**.
+- The levels on the grid correspond to the same decibel levels as `amp`: these are essentially **delay** send levels.
+
+## probability
+
+The `probability` parameter determines how often a sample/slice is triggered. This is a unidirectional parameter, so the track level defines the maximum probability, and the parameter level pattern defines relative probabilities within this range.
+
+Again, this is a unidirectional parameter, so it manifests on the grid in the same way `amp` does. The levels on the grid correspond to the following probabilities:
+
+`1/6 | 2/6 | 3/6 | 4/6 | 5/6 | 1`
 
 ## scale
 
-...
+The `scale` parameter determines the pitch and direction of a sample/slice. This is a bidirectional parameter that actually behaves similarly to `filter` on the grid.
+
+{{< figure src="param_scale.svg" class="center-image-85">}}
+
+- When a sample/slice is to be played forward, the scale pads on the grid pads light up from left-to-right. When set to be played backward, the pads light up from right-to-left.
+- To swap between being played forward or in reverse, tap the extreme-most pad selected. So, for track 4 in the example above, pushing the third pad would make that track play its slices in reverse.
+- Like filter, the track direction defines the direction of all samples assigned to that track. This is also reflected in the **levels** pages for **sample** and **tape**.
+- Scale is dependent on the `interval` parameter, which defines a note of the scale (e.g., "5th", "4th", "7th", etc.). See the [interval](#interval) section for more on this.
+  - The default value for `interval` is a perfect 5th.
+- The values on the grid correspond to the following scale values, where "`ova`" means "octave", and "`interval`" is an interval *above* the root note:
+  - Forward: `-ova | -ova+interval | root | root+interval | +ova | +2ova`
+  - Backward: `+2ova | +ova | root+interval | root | -ova+interval | -ova`
+  - So, for example, track 5 in the example above would be played one interval *above* one octave below.
+- Again, this is a *bidirectional* parameter, where the "middle" value is the `root`. The sample/slice itself defines the "root" pitch.
+
+{{% hint warning %}}
+Remember that parameter *pattern* levels are *relative*. They are meant to represent deviations from the `track` parameter level. So, if things start to get confusing, think about the bidirectional squelching diagram, above.
+{{% /hint %}}
+
+## interval
+
+The `interval` parameter defines what note of the scale to play when `scale` is set to play at this interval.
+
+{{< figure src="param_interval.svg" class="center-image-85">}}
+
+- The interval here corresponds to either a `major` or (natural) `minor` scale. This can be set in the **PARAMS** menu.
+- The values on the grid start with the `2nd` note of the scale, and end with the `7th` note of the scale:
+  - `2nd | 3rd | 4th | 5th | 6th | 7th`
+- Uniquely, *there is no squelching for the interval.* There are two ways the track level relates to each pattern step:
+  - (Default) The track level defines all step values.
+  - The step value *overwrites* the track level
+- By default, each pattern level value for `interval` is empty (as seen in the **levels** page). In this case, the track `interval` defines the interval for each step.
+- When you define a parameter pattern level on the **levels** page, you set that `interval` value for that step. This overwrites anything defined at the track level.
+- To set the track level as the defining value on the **levels** page, select the current step value, and that will remove the selection. The step `interval` is then defined by the track level.
+
+# tips and tricks
+
+- If you want the parameter *pattern* to drive the true values, just leave the track values as either the maximum or "true middle" value.
+- 
 
 # footnotes
