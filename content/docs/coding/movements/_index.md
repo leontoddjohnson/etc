@@ -6,7 +6,7 @@ math : true
 
 # movements
 
-movements is a sequencer of preloaded samples or of slices from recorded input.
+movements is a sequencer of samples from audio files or of slices from recorded input.
 
 **requirements**
 
@@ -339,7 +339,7 @@ At the top left of the Norns screen for every section are three vertical bars, t
 
 ## sample displays
 
-For all sample displays, the top navigation bar indicates the following:
+For all **sample** displays, the top navigation bar indicates the following:
 
 `TRACK • BANK • filename of currently selected SAMPLE`
 
@@ -349,29 +349,119 @@ Use **E1** on its own to scroll through the following displays.
 
 The first **sample** display is the **track pool** display. On the right side is the list of audio files corresponding to samples in the `track_pool_cue`. These are "on deck" to be added to the `track_pool`, whose audio files are listed in brighter text on the left side.
 
+{{< figure src="screen_1.png" class="center-image-50">}}
+
 - **K2** on this page will enter the file selection, where you can pick a folder to load into the current bank for the focussed track.
   - After a folder is loaded, the folder name will show up at the bottom of this page (specifically for the selected bank).
 - The order of the audio files on this page correspond to the order of the `sample`s in the `track_pool` (and `track_pool_cue`). To ensure a particular order, make sure to select (or deselect) samples on the grid accordingly.
 
-### sample waveform
+{{< figure src="screen_2.png" class="center-image-50">}}
 
-The 
+- Use **E2** to scroll through the `track_pool`, and **E3** to scroll through the `track_pool_cue`.
 
 ### track params
 
-...
+For the **sample** functionality, the **track params** display shows the current track parameter on the left, and the `noise` level on the right.
+
+{{< figure src="screen_3.png" class="center-image-50">}}
+
+- **E2** will adjust the track parameter level (in this case, `amp`), and **E3** will adjust the `noise` level.
+- The track parameter will update with your selection on the grid.
+
+### sample waveform
+
+The **sample waveform** display can show the waveform for the selected sample. By default, Timber will only render the sample waveform when requested. 
+
+{{< figure src="screen_4.png" class="center-image-50">}}
+
+- Use **K3** to render the waveform.
+- Use **E2** to adjust the start frame, and **E3** to adjust the end frame.
+
+{{< figure src="screen_5.png" class="center-image-50">}}
+
+- When the **play mode** (on the grid) is set to `"Loop"` or `"Inf. Loop"`, this display will show the `start` and `stop` positions (vertical lines) *as well as* the `loop_start` and `loop_stop` positions (brackets).
+  - To switch between setting these, use **K2**. Then, **E2** and **E3** work as expected.
+- The play mode and the sample information will show above the waveform.
 
 ### sample envelope
 
-... this only applies to samples set to "Gated" ??
+When the **play mode** is set to `"Gated"`, then you can adjust the amplitude envelope *for the sample*. This is done on the **sample envelope** page.
+
+{{< figure src="screen_6.png" class="center-image-50">}}
+
+- Use **K2** to swap between adjusting `attack` and `delay` (the top two) or adjusting `sustain` and `release` (the bottom two).
+- **E2** and **E3** will make the adjustments accordingly.
+
+{{% hint info %}}
+Note that the sample envelope parameters are tied to the *sample itself*. So, no matter what track pool the sample is assigned to, or how the other parameters are updated, the enveloping set here will remain the same.
+{{% /hint %}}
 
 ## tape displays
 
-...
+For all **tape** displays, the top navigation bar indicates the following:
+
+`TRACK • BANK • SLICE_start - SLICE_end`
+
+Again, use **E1** on its own to scroll through the following displays.
+
+### track pool
+
+The **track pool** display for **tape** shows the two buffers of the currently selected `partition`, and the slices assigned to the `track_pool` and `track_pool_cue`. Use **E2** to adjust the `slice` start time and **E3** to adjust the `slice` end time for the currently selected `slice`.
+
+{{< figure src="screen_7.png" class="center-image-50">}}
+
+- The bright bar closest to the buffers indicates the range of the currently selected sample.
+- The bright-ish bars in the middle region represent the slices assigned to the current `track_pool`.
+- The dimmer bars in the lower region represent the slices assigned to the current `track_pool_cue`.
+- Use **K2** to load an audio file starting at the beginning of the current `slice`.
+  - The file will only load into the buffer assigned to the current track. If the track is a stereo pair, and you are calling **K2** from the *left* track, this will load in stereo.
+  - The file will start at the beginning of the current `slice`, but movements will cut it off at the end of the `partition`.
+  - Set the `overdub` level in the **track params** display to preserve that amount of audio "under" the audio file. I.e., if `overdub == 0`, then the audio file will overwrite everything in that range.
+
+{{< figure src="screen_8.png" class="center-image-50">}}
+
+- When a buffer has audio recorded to it, the bar will be brighter in that region. Set the `rec_threshold` in **PARAMS** to adjust the minimum level required for this to show.
+  - Adjusting `rec_threshold` will also determine which pads in the **partition** count as "containing audio".
+- If your selected `slice` contains a region in which a file loaded into the buffer, the text at the bottom of the screen will show the name of the *latest* file loaded in that range.
+- Use **K1 + K3** to clear the audio in a selected slice range. Again, the `track_buffer` (and whether the track represents a stereo pair) will dictate which buffer(s) are cleared.
+
+### track params
+
+This display functions the same as the **track params** display for **sample**. The only difference is that the "extra" parameter here is `overdub` level.
+
+{{< figure src="screen_9.png" class="center-image-50">}}
+
+- On this display, **E2** and **E3** will still adjust the `slice` start and end times, respectively.
+
+### track waveform
+
+The **track waveform** display for **tape** is very similar to the same for **sample**.
+
+{{< figure src="screen_10.png" class="center-image-50">}}
+
+- The waveform on this page will render *after* a recording is complete. While softcut is recording, you'll see a little circle show up on the bottom of the display.
+- **K2** will record *mono* to the current track, and if the track is the first of a stereo pair, **K3** will record *stereo*.
+- On this display, **E2** and **E3** will still adjust the `slice` start and end times, respectively.
 
 ## delay displays
 
-...
+There is one display for **sample** delay, and another for **tape** delay.
+
+### sample delay
+
+On the **sample delay** page, you can adjust the `delay feedback` and `delay time` using **E2** and **E3**, respectively.
+
+{{< figure src="screen_11.png" class="center-image-50">}}
+
+### tape delay
+
+Similarly, on the **tape delay** display, you can adjust the `delay feedback` and `delay time` for both left and right channels.
+
+{{< figure src="screen_12.png" class="center-image-50">}}
+
+- Use **K2** *or* **K3** to swap between `feedback` and `time`.
+- Then, use **E2** and **E3** to adjust the left and right channels of the delay, respectively.
+- Hold **K1** and use **E2** *or* **E3** to adjust the overall delay level (at the bottom of the display).
 
 # parameters
 
@@ -490,9 +580,10 @@ The `scale` parameter determines the pitch and direction of a sample/slice. This
   - Backward: `+2ova | +ova | root+interval | root | -ova+interval | -ova`
   - So, for example, track 5 in the example above would be played one interval *above* one octave below.
 - Again, this is a *bidirectional* parameter, where the "middle" value is the `root`. The sample/slice itself defines the "root" pitch.
+  - The `track` value defines the middle value for squelching. The final value is within 2 increments of this value. So, if the `scale` value for a (forward) track is `+ova`, then the lowest parameter pattern value will correspond to `root+interval`.
 
 {{% hint warning %}}
-Remember that parameter *pattern* levels are *relative*. They are meant to represent deviations from the `track` parameter level. So, if things start to get confusing, think about the bidirectional squelching diagram, above.
+Remember that parameter *pattern* levels are *relative*. They are meant to represent deviations from the `track` parameter level. So, if things start to get confusing, think about the bidirectional squelching diagram, above, or keep the track level at `root`.
 {{% /hint %}}
 
 ## interval
