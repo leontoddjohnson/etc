@@ -514,7 +514,7 @@ In other words, the **track value** becomes the new "center", and the parameter 
 - The bottom row (on the left side) will be *blank* for `amp`. From another parameter focus, *re*-select the pad to revert to the `amp` parameter.
   - The grid diagram in the panning section shows the other parameter options.
 - To set the amplitude to 0, *re*-select the currently set value. Otherwise, the pads correspond to the following levels (in decibels):
-  - `-24 | -18 | -12 | -6 | -3 | 0`
+  - `-28 | -18 | -12 | -6 | -3 | 0`
 
 ## panning
 
