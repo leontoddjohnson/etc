@@ -389,7 +389,7 @@ The **sample waveform** display can show the waveform for the selected sample. B
 
 ### sample envelope
 
-When the **play mode** is set to `"Gated"`, then you can adjust the amplitude envelope *for the sample*. This is done on the **sample envelope** page.
+When the **play mode** is set to `"Gated"` or `"1-Shot"`, then you can adjust the amplitude envelope *for the sample*. This is done on the **sample envelope** page.
 
 {{< figure src="screen_6.png" class="center-image-50">}}
 
