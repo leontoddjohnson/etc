@@ -320,6 +320,7 @@ The **tape seq** page takes the **sample seq** and adds the ability to arm recor
   - This applies to stereo track pairs as well.
   - When recording, you'll hear the sound of the slice being overdubbed based on the `pre` level set for that track. For more on this, see the [parameters](#parameters) section.
   - The 7th row shows recording progress for the slice (it is also indicated in the **slice waveform** display).
+- *Recording takes precedence.* So, if a track is recording, it will not play any step until the recording is through.
 
 ### tape levels
 
@@ -444,7 +445,10 @@ The **track waveform** display for **tape** is very similar to the same for **sa
 {{< figure src="screen_10.png" class="center-image-50">}}
 
 - The waveform on this page will render *after* a recording is complete. While softcut is recording, you'll see a little circle show up on the bottom of the display.
+  - This includes loop recording. You won't see the updated rendering until the record indicator is gone.
 - **K2** will record *mono* to the current track, and if the track is the first of a stereo pair, **K3** will record *stereo*.
+  - *Note: if recording onto a stereo pair, you'll need to manually update the `overdub` for **both** tracks.* This allows for more flexibility in stereo recording.
+  - If already playing/recording, either key will stop the recording/playing.
 - On this display, **E2** and **E3** will still adjust the `slice` start and end times, respectively.
 
 ## delay displays
