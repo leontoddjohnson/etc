@@ -299,7 +299,7 @@ The **tape config** page is very similar to the **sample config** page.
 - **play mode** and **partition selection** function the same way as their complements on the **sample side**
 - The **slice locator** indicates where in the partition the selected `slice` exists. You can use this locator in the same way you might use the **sample range** on the **sample config** page.
   - That is, you can choose where the slice starts and stops (using **ALT** for the latter).
-- The **buffer selection** region dictates whether a track is assigned to the left buffer (*bright*) or the right buffer (*dim*).
+- The **buffer selection** region dictates whether a track is assigned to the left buffer (*bright*) or the right buffer (*dim*). *Note: `INPUT 1` on the Norns always corresponds to the first buffer, and `INPUT 2` on the Norns always corresponds to the second buffer.*
 - You can assign `stereo tracks` by assigning buffers and `pan` accordingly:
   - The only possible stereo pairs are **tape** tracks `8-9` and tracks `10-11`, where the lower track number is *LEFT*.
   - To assign a pair a stereo, set the panning for the two tracks as hard left, and hard right, respectively. Also, make sure that the buffers are set accordingly (lower to the left, and higher to the right).
