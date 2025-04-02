@@ -19,7 +19,10 @@ $container-max-width: 90rem !default;
 $menu-width: 12rem !default;
 $toc-width: 14rem !default;
 
-$mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
+$mobile-breakpoint: 768px;  // from littlefoot/src/littlefoot.css
+
+// original ...
+// $mobile-breakpoint: $menu-width + $body-min-width * 1.2 + $toc-width !default;
 
 $hint-colors: (
   info: #6bf,
