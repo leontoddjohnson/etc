@@ -7,13 +7,7 @@ booktoc: false
 
 # coding
 
-Right now, this section contains documentation for scripts I've written for the [monome norns](https://monome.org/docs/norns/).
-
-## norns scripts
-
-Right now, I intend only to upkeep two scripts:
+This section contains documentation for scripts I've written for the [monome norns](https://monome.org/docs/norns/). Right now, I intend only to upkeep two scripts:
 
 - moments: a sort of dancing delay
 - movements: a sequencer and sampler (*[in development](https://github.com/leontoddjohnson/movements)*)
-
-Maybe someday, I'll make more ...

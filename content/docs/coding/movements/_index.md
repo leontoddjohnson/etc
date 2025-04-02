@@ -8,10 +8,6 @@ math : true
 
 movements is a sequencer of samples from audio files or of slices from recorded input.
 
-{{% hint warning %}}
-**This script is in beta**, but I think it's mostly there. Got a few homies checking for bugs.
-{{% /hint %}}
-
 **requirements**
 
 - grid (128)

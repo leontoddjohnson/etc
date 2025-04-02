@@ -7,11 +7,11 @@ weight: 1
 
 # teaching
 
-I'm working on building out this page a bit more ... For now, I'll just share the courses I teach at IUI:
+I teach the following courses at IUI:
 
 - Intro to Data Science Programming
 - Mathematics for Data Science
 - Statistics with R
 - Data Visualization Design, Evaluation, and Analysis
 
-[Here is my CV](cv_2025.pdf), and I write about my teaching [in my journal](/tags/teaching).
+You can find my CV [here](cv_2025.pdf), and teaching-related journal articles [here](/tags/teaching) (use the "teaching" tag). My [teaching philosophy](philosophy) contains my approach to teaching, and I'll share projects/assignment ideas in the [*projects* section](projects).

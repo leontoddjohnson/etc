@@ -8,10 +8,6 @@ math : true
 
 moments that once were.
 
-{{% hint warning %}}
-**This script is in beta**, but I think it's mostly there. Got a few homies checking for bugs.
-{{% /hint %}}
-
 ## set up
 
 **requirements**
@@ -33,7 +29,7 @@ Constantly record the last `loop length` seconds of input, and allow four voices
 - The voices will only move if the amplitude of the input goes above a threshold. This creates a strange sort of lifelike feel.
 - The random starting point for each voice is updated (randomly within the buffer) based on a fraction of the tempo set in `PARAMS/CLOCK`. Each voice has it's own "move rate".
 
-## ui
+# ui
 
 {{< figure src="moments_example.png" class="center-image-75">}}
 
@@ -42,7 +38,7 @@ Constantly record the last `loop length` seconds of input, and allow four voices
 
 Here, the four dots represent the four voices. When the `input_type` is set to *mono*, the four voices read from the same buffer. Otherwise, when `input_type` is set to *stereo*, voices 1 and 2 (the top two dots) read from the left input, and voices 3 and 4 read from the right input.
 
-## grid
+# grid
 
 This script is compatible with either 128-pad monome grids, or the 64-pad Launchpad. There is a left 64-pad section, and a right 64-pad section. Each section has a top and bottom portion with four rows. Each row corresponds to a voice (or, in the UI, a dot).
 
@@ -63,6 +59,6 @@ This script is compatible with either 128-pad monome grids, or the 64-pad Launch
   - The dimly lit pads indicate the octave-level intervals.
   - The direction of the dot (forward/reverse) dictates the order of the intervals, so when *forward*, the last pad is dimly lit.
 
-## other parameters
+# other parameters
 
 See `PARAMS` for more parameters. Play around with them; see what happens! :)
