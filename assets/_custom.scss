@@ -50,3 +50,33 @@
     float: left;
   }
 }
+
+// littlefoot tooltips
+// see https://littlefoot.js.org/ for more
+
+.littlefoot {
+  button {
+    padding: 0 0.3rem;
+    vertical-align: top; 
+    text-align: center; 
+    color: white;
+    font-weight: 400; 
+    font-size: .6em;
+    background-color: #747474;
+    --button-active-background-color: #353535;
+  }
+
+  aside {
+    --popover-background-color: #353535;
+    --popover-font-family: "Satoshi";
+    --popover-font-weight: 300;
+    --popover-text-color: #e9ecef;
+
+    // override for mobile screen
+    @media screen and (max-width: $mobile-breakpoint) {
+      position: relative;
+      margin: 5px 0;
+    }
+  
+  }
+}
