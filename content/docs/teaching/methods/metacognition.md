@@ -10,7 +10,7 @@ In my classes, I do not grade students in the traditional sense. Instead, I use 
 - weekly metacognitive reports
 - three metacognitive reflections (per term)
 
-Both of these are equally valuable for both myself and the student, and together, they cover the *planning*, *monitoring*, and *evaluating* stages of the metacognitive cycle, [as described by](https://lsa.umich.edu/content/dam/sweetland-assets/sweetland-documents/teachingresources/CultivatingReflectionandMetacognition/Metacognition.pdf) the Sweetland Center for Writing at the University of Michigan.
+Both of these are equally valuable for both myself and the student, and together, they cover the *planning*, *monitoring*, and *evaluating* stages of the metacognitive cycle, [as described by](https://lsa.umich.edu/content/dam/sweetland-assets/sweetland-documents/teachingresources/CultivatingReflectionandMetacognition/Metacognition.pdf) the Sweetland Center for Writing at the University of Michigan. Further, and maybe more importantly, they help to integrate each student's learning experience with their sense of Self (Lin 2001); something that is integral to my teaching philosophy.
 
 ## metacognitive reports
 
