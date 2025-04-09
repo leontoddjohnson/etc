@@ -84,7 +84,7 @@ In my data science programming course, I divide the class into groups of 3-4 stu
 - environment variables (with *.env* files)
 - an introduction to the idea of Docker
 
-Students will choose their own dataset (based on shared interest), and they meet each week to talk about their contribution to the project. They use what we learn in class to improve on their project, and (at least) the second half of every class period is devoted to project work.
+Students will choose their own dataset (based on shared interest), and they meet each week to talk about their contribution to the project. They use what we learn in class to improve on their project, and (at least) the second half of every class period is devoted to project work with their group. I use [GitHub Classrooms](https://classroom.github.com/videos) for students to practice their Python skills on weekly exercises, and apply what they've learned to their project.
 
 In my experience, students tend to be excited about using what they learn in a true "on-the-job" context, and working with data they enjoy keeps them engaged.
 
