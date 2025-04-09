@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="26.2.1">
+  <diagram name="ai" id="AD0j8ZVl492zKQFY-U34">
+    <mxGraphModel dx="2840" dy="1312" grid="0" gridSize="10" guides="0" tooltips="0" connect="1" arrows="0" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="#353535" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZywGPytzfWBgbfW9GCtc-2" value="(ideal)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;fontColor=#FFFFFF;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="267" y="599" width="169" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ZywGPytzfWBgbfW9GCtc-3" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=4;strokeColor=#FFFFFF;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-274" y="625" as="sourcePoint" />
+            <mxPoint x="254" y="625" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ZywGPytzfWBgbfW9GCtc-5" value="acting" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;fontColor=#FFFFFF;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="-71" y="618" width="140" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="--Gpbwa46gxwDVzGV0nx-1" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=4;strokeColor=#FFFFFF;fontColor=#FFFFFF;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-274" y="623" as="sourcePoint" />
+            <mxPoint x="-274" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Iwb8tN430e_EfelBfw3o-1" value="(ideal)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;fontColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="-359" y="81" width="169" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="Iwb8tN430e_EfelBfw3o-2" value="reasoning" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;fontColor=#FFFFFF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="-445" y="322" width="140" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="Iwb8tN430e_EfelBfw3o-4" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.arc;startAngle=0.9924269139058159;endAngle=0.2589318999770784;strokeWidth=6;strokeColor=#66B2FF;" vertex="1" parent="1">
+          <mxGeometry x="-446" y="439" width="354" height="354" as="geometry" />
+        </mxCell>
+        <mxCell id="Iwb8tN430e_EfelBfw3o-5" value="human" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=30;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;fontColor=#66B2FF;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="-261" y="492" width="140" height="92" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
