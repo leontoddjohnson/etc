@@ -554,11 +554,16 @@ The **sample** and **tape** functionalities both have their own delay *bus*. The
 
 This is a unidirectional parameter, and it manifests on the grid in the same way `amp` does.
 
-- By default, the `delay` for each track is set to 0. 
-- You can adjust the `delay time` and the `delay feedback` for each delay bus. I.e., ther eis ...
-- T, and you can adjust both time and feedback independently for the left and right channels. The **tape** delay also has an overall level.
+- By default, the `delay` for each track is set to 0, and new steps get a "relative" `delay` setting of 1.
+- You can adjust the `delay time` and the `delay feedback` for each delay bus in the UI.
+- For **tape** delay, you can adjust both time and feedback independently for the left and right channels.
+- Both delay types have an overall level that needs to be set.
 - All delay parameters can be set in the **PARAMS** menu, or on the corresponding **tape delay display**.
 - The levels on the grid correspond to the same decibel levels as `amp`: these are essentially **delay** send levels.
+
+{{% hint warning %}}
+**To use delay, you'll need to increase the overall delay level in the UI.** This is initialized as 0 (to avoid unwanted delay at the start), but once it's set, you should be good to go.
+{{% /hint %}}
 
 ## probability
 
