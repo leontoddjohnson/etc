@@ -235,7 +235,7 @@ The **sample seq** page is an interface for the transports for the 7 **sample** 
 - There are 3 brightness levels for the pattern bars:
   1. The current `bar` is the brightest.
   2. If the current track transport is in a pattern bar, that bar will be slightly less bright.
-  3. The dimmest pads have active steps.
+  3. In **FOCUS MODE**, the dimmest pads have active steps between them for the selected track. In **PLAY MODE** the dimmest pads have active steps between them for at least one track.
 - In **PLAY MODE**, the page will "follow" the transport for the current track.
 - You can copy a pattern (along with the parameter patterns) from one bar to another bar by holding **ALT + the "copy" bar + the "paste" bar**.
 
