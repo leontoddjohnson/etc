@@ -38,6 +38,13 @@
   }
 }
 
+// Fix for new font sizes
+.book-header {
+  h3 {
+    line-height: 2rem;
+  }
+}
+
 // Extra space for big screens
 @media screen and (min-width: $container-max-width) {
   .book-page,
