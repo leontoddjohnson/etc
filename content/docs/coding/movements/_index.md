@@ -223,7 +223,7 @@ The **sample seq** page is an interface for the transports for the 7 **sample** 
   4. The dimmest pads indicate the selected row/selected `track`.
 - To select a track, hold **ALT** and push a pad in that row. The selected track spans across the 4 **sample** pages.
 - To create an island, hold the first step of the island, and then the last step of the island.
-  - To remove this, do the same with the first step of the bar and the last step of the bar.
+  - To remove this, reselect the same bounds.
 - In **PLAY MODE**:
   - selecting a pad forces the transport to that step.
   - hold **ALT** and a pad to force all **sample** transports to that step.
