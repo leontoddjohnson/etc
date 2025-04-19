@@ -389,6 +389,7 @@ The **sample waveform** display can show the waveform for the selected sample. B
 - When the **play mode** (on the grid) is set to `"Loop"` or `"Inf. Loop"`, this display will show the `start` and `stop` positions (vertical lines) *as well as* the `loop_start` and `loop_stop` positions (brackets).
   - To switch between setting these, use **K2**. Then, **E2** and **E3** work as expected.
 - The play mode and the sample information will show above the waveform.
+  - Along with the associated grid pads, you can use **K3** to swap between **sample** play modes on this page (after the waveform is rendered).
 
 ### sample envelope
 
@@ -452,6 +453,9 @@ The **track waveform** display for **tape** is very similar to the same for **sa
   - *Note: if recording onto a stereo pair, you'll need to manually update the `overdub` for **both** tracks.* This allows for more flexibility in stereo recording.
   - If already playing/recording, either key will stop the recording/playing.
 - On this display, **E2** and **E3** will still adjust the `slice` start and end times, respectively.
+- If the current track is playing a slice, then either **K2** or **K3** on this page will stop the track from playing.[^fn:slice_playing]
+
+[^fn:slice_playing]: Note that **tape** slices are not separate audio clips existing in their own right, as they are on the **sample** side. When a slice is played, the associated track (i.e., softcut voice) playhead is moved to that position in the buffer, and it plays. *To stop playing a slice is to stop playing the track altogether.*
 
 ## delay displays
 
