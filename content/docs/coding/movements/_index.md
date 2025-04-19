@@ -90,8 +90,12 @@ The **sample** functionality is meant for loading, playing, and sequencing audio
 - [According to the Timber developer](https://llllllll.co/t/timber/21407), Timber is intended to play up to 7 voices at a time; this is why the **sample** functionality is limited to seven tracks.
 - When playing a sequence, movements will stop playing the "current" step before starting to play the next step.
 
-{{% hint warning %}}
+{{% hint info %}}
 If an audio file is *over* 5 seconds stereo or over 10 seconds mono (at 48kHz), then Timber will stream it. Otherwise, shorter files will be loaded into the Timber buffer. Shorter audio files are more versatile in Timber, as streaming samples cannot be played backward, and they do not have the `Infinite Loop` option.
+{{% /hint %}}
+
+{{% hint warning %}}
+For the best playback performance, **use audio files with a sample rate of 48kHz**. Anything less than that may cause the playback to be warped a bit ...
 {{% /hint %}}
 
 ## tape
