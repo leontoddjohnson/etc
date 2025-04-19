@@ -267,6 +267,8 @@ Each track proceeds on its own independent transport. These transports move from
 
 - Each of the first 7 rows correspond to a **sample** track.
 - The first column toggles between playing and not playing a track sequence.
+  - Hold **ALT** and select a lit pad to *stop* all transports
+  - Hold **ALT** and select an unlit pad to *play* all transports
 - The second column dictates whether the sequence time is based on the beat or based on seconds.
 - Columns 4-16 indicate the `clock_fraction`, or the fraction of a beat or second to exist between steps:
   - `1/8, 1/7, 1/6, 1/5, 1/4, 1/3, 1/2, 1, 2, 3, 4, 5, 6`
