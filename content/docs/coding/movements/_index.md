@@ -436,7 +436,7 @@ The **track pool** display for **tape** shows the two buffers of the currently s
 
 [^fn:recthresh]: Fast encoder turns to update the `rec_threshold` parameter may seem to lag a bit in the norns UI. This is because each delta change to the parameter requires the script to run a "check" across all 19,200 samples of the **tape** buffer. Nothing is wrong, the value you want in the end will update accordingly.
 
-[^fn:recthresh2]: Each pixel (one of 128) in the horizontal buffer lines indicates the *first* frame of that "region" of the partition. Each "region" (there are 128 per partition) translates to 0.625 seconds. So, the brightness of buffer lines in the UI may be less accurate as `rec_threshold` is increased (i.e., especially for more percussive audio, we may be missing peaks within a region). On the other hand, the grid indicates audio across the *whole* buffer, and lights each partition pad and each slice pad accordingly. In other words, for higher `rec_threshold` values, the grid pads will be more accurate than the UI indicator.
+[^fn:recthresh2]: Each pixel (one of 128) in the horizontal buffer lines indicates the *first* frame of that "region" of the partition. Each "region" (there are 128 per partition) translates to 0.625 seconds. So, the brightness of buffer lines in the UI may be less accurate as `rec_threshold` is increased (i.e., especially for more percussive audio, we may be missing peaks within a region). On the other hand, the grid indicates audio across the *whole* buffer, and lights each partition pad and each slice pad accordingly. In other words, for higher `rec_threshold` values, the grid pads will be more accurate than the UI indicator. For a few reasons, this was necessary to save on computation time.
 
 ### track params
 
