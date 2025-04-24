@@ -428,10 +428,12 @@ The **track pool** display for **tape** shows the two buffers of the currently s
 
 {{< figure src="screen_8.png" class="center-image-50">}}
 
-- When a buffer has audio recorded to it, the bar will be brighter in that region. Set the `rec_threshold` in **PARAMS** to adjust the minimum level required for this to show.
+- When a buffer has audio recorded to it, the bar will be brighter in that region. Set the `rec_threshold` in **PARAMS** to adjust the minimum level required for this to show.[^fn:recthresh]
   - Adjusting `rec_threshold` will also determine which pads in the **partition** count as "containing audio".
 - If your selected `slice` contains a region in which a file loaded into the buffer, the text at the bottom of the screen will show the name of the *latest* file loaded in that range.
 - Use **K1 + K3** to clear the audio in a selected slice range. Again, the `track_buffer` (and whether the track represents a stereo pair) will dictate which buffer(s) are cleared.
+
+[^fn:recthresh]: Fast encoder turns to update the `rec_threshold` parameter may seem to lag a bit in the norns UI. This is because each delta change to the parameter requires the script to run a "check" across all 19,200 samples of the **tape** buffer. Nothing is wrong, the value you want in the end will update accordingly.
 
 ### track params
 
