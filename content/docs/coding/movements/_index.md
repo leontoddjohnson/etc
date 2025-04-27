@@ -180,8 +180,8 @@ For both **sample** and **tape**, the best place to start is often with the **co
   5. Lastly, if there is an audio file loaded into that sample, it will be most dim.
 - If you hold the pad for a sample that is loaded into another track, that track pad will light up in the **track selection** region. In these cases, that sample is "used up", and can't be assigned elsewhere until it's relieved from the `track_pool` with **ALT** + `sample` **pad**.
 - You can dictate the row/column for audio files in a bank by using a `<row><col>*...` naming convention, where `*` is `" "`, `"-"` or `"_"`. For example, the file with the name *23_sound.wav* would be loaded into the second row and the third column.
-  - Duplicate indices will be overwritten by the latest of the two.
-  - If the indices are invalid, movements will load the samples in order, left-to-right, top-to-bottom.
+  - Duplicate or invalid indices will be *overwritten* by the latest related filename.
+  - If you are NOT using "row-column" indexing and you are numbering files, use a 3-digit syntax `###_...`, or start *all files in the folder* with some character other than a 1, 2, 3, or 4.
   - Folders with more than 32 files will stop loading at file #32.
 - In **PLAY** mode ...
   - pushing a pad will play (or stop) the sample loaded into that pad.
