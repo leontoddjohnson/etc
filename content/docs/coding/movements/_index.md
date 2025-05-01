@@ -194,8 +194,8 @@ For both **sample** and **tape**, the best place to start is often with the **co
 
 - For a sample (or slice), the **play mode** is different from **PLAY MODE**. It represents the way a sample/slice will be played.
 - For a selected `sample`, we have two sets of **play mode** options
-  - Streaming Samples: `"Loop"  "Loop"  "1-Shot"  "Gated"`
-  - Buffer Samples: `"Loop"  "Inf. Loop"  "1-Shot"  "Gated"`
+  - Streaming Samples: `"Loop"  "Loop"  "1-Shot"  "Gated"` (defaults to *Gated*)
+  - Buffer Samples: `"Loop"  "Inf. Loop"  "1-Shot"  "Gated"` (defaults to *1-Shot*)
 
 #### bank selection
 
@@ -298,7 +298,7 @@ The **tape config** page is very similar to the **sample config** page.
 - The **track param adjustment**, **track param selection**, and **track selection** regions function the same way as their complements on the **sample** side.
 - **PLAY MODE** also functions the same way.
 - Instead of `banks` (of audio files), the **tape** functionality offers four `partitions` of the stereo buffer. Each partition is divided into 32 `slices`. In the same way you can select `samples` in the **sample** functionality, you select `slices` with the **tape**.
-- **play mode** and **partition selection** function the same way as their complements on the **sample side**
+- **play mode** and **partition selection** function the same way as their complements on the **sample side**. The default play mode for **tape** is *1-Shot*.
 - The **slice locator** indicates where in the partition the selected `slice` exists. You can use this locator in the same way you might use the **sample range** on the **sample config** page.
   - That is, you can choose where the slice starts and stops (using **ALT** for the latter).
 - The **buffer selection** region dictates whether a track is assigned to the left buffer (*bright*) or the right buffer (*dim*). *Note: `INPUT 1` on the Norns always corresponds to the first buffer, and `INPUT 2` on the Norns always corresponds to the second buffer.*
@@ -624,9 +624,14 @@ The `interval` parameter defines what note of the scale to play when `scale` is 
 - When you define a parameter pattern level on the **levels** page, you set that `interval` value for that step. This overwrites anything defined at the track level.
 - To set the track level as the defining value on the **levels** page, select the current step value, and that will remove the selection. The step `interval` is then defined by the track level.
 
-# tips and tricks
+# a note on updates
 
-- If you want the parameter *pattern* to drive the true values, just leave the track values as either the maximum or "true middle" value.
-- Load files into **tape** to slice them up into 32 equally sized slices, and sequence them as you like.
+*Right now, I have no intention of making major updates to the script.* The only changes I expect to make include minor UI adjustments, performance improvements, and bug fixes. I'll keep track of issues [here](https://github.com/leontoddjohnson/movements/issues).
 
-# footnotes
+For most of the unimplemented ideas that came to mind, there was good a reason why I chose not to implement it (usually it came down to "less is more"). But, for the sake of sharing, here are a few features I could have included, but chose not to:
+
+- **Incorporating LFOs.** True, the Timber engine offers an LFO functionality for samples. But, this interferes with movements' ability to adjust **sample** panning and amplitude levels in a pattern. In a sense, the LFO overcomplicates the automation that is already happening due to parameter patterns. The same point can be made for adding an LFO for the **tape** functionality.
+- **Randomizing Parameters**. The main reason I chose not to add this is that I felt the juice was not worth the squeeze. Implementing this would mean defining a different randomization process for each parameter, since they all behave quite differently—this is a bit of a heavy load it turns out. Even so (and poetically enough), "randomness" is really only a theoretical idea. True randomness can only come from Nature, so your fingers do the talking here.
+- **"Assign All" play mode**. Something I felt *could* be helpful is the ability to assign the same play mode (e.g., *"Loop"* vs. *"1-Shot"*) across all samples/slices in a bank/partition. The difficulty here is that in the **sample** functionality, not all samples share the same play mode options, so it wouldn't necessarily always work, and results might be counter-intuitive. Also, it really doesn't take much time to just go through and assign play modes accordingly.
+- **Setting different sequence "start" locations**. Again, the juice didn't seem worth the squeeze here. Even so, I think it's kind of nice to know that every sequence starts at the beginning of the same bar. At least, the "island" functionality provides a decent way of getting around this, though.
+- **Sending MIDI**. This was a tough decision, but it comes down to the purpose of this script: it is a sampler, so it should be used that way. There are myriad sequencer scripts out there that are great for controlling an outboard MIDI device, and many of their sequencer functions are better than movements anyway! So, I recommend looking into those for that purpose.
