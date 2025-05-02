@@ -164,6 +164,7 @@ For both **sample** and **tape**, the best place to start is often with the **co
 
 - Each row in the **track param adjustment** region corresponds to a track. Making adjustments here will affect a parameter for the whole track. Select a parameter to adjust/focus on with the **track param selection**. For more on these, see the [parameters](#parameters) section, below.
   - The focused parameter will be shared across functionalities and pages.
+- Hold **ALT** and select the pad in the *seventh* column (between the highest parameter value and the track selection) *for the current track* to randomize the current parameter pattern for that track-bank. *Note: this will only work for the currently selected track.*
 
 #### track selection
 
@@ -196,6 +197,7 @@ For both **sample** and **tape**, the best place to start is often with the **co
 - For a selected `sample`, we have two sets of **play mode** options
   - Streaming Samples: `"Loop"  "Loop"  "1-Shot"  "Gated"` (defaults to *Gated*)
   - Buffer Samples: `"Loop"  "Inf. Loop"  "1-Shot"  "Gated"` (defaults to *1-Shot*)
+- Hold **ALT** and select a play mode to apply that play mode to all samples/slices in the current `track_pool_cue`.
 
 #### bank selection
 
