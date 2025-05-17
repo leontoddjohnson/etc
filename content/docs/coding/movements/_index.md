@@ -626,6 +626,29 @@ The `interval` parameter defines what note of the scale to play when `scale` is 
 - When you define a parameter pattern level on the **levels** page, you set that `interval` value for that step. This overwrites anything defined at the track level.
 - To set the track level as the defining value on the **levels** page, select the current step value, and that will remove the selection. The step `interval` is then defined by the track level.
 
+# filenaming
+
+{{% hint info %}}
+Note: the following assumes you have a Mac or Linux, or you have Python installed on your computer.
+{{% /hint %}}
+
+
+Download the */lib/filenaming.py* file to rename Ableton cropped clips in a way that's convenient for organizing in the **sample** banks.
+
+1. Slice clips that you'd like to crop in Ableton.
+2. For each track, use **Cmd + A** to select preferred clips, and use **Cmd + R** to give them all the same name. *Multiple clips in ableton can have the same "name".*
+3. **Crop** clips in ableton using **Cmd + Shift + J**.
+4. Create a new folder to contain the renamed clips. Name it as you like.
+5. Find the *\<abletonproject\>/Samples/Processed/Crop* directory, and **Copy** the corresponding clips from this original *Crop* folder into your new folder (use the date/time as a guide ...). Ableton needs the files named as they are. <font color='orange'>Do not edit the "Crop" folder.</font>
+6. Navigate in your command line to the place where the *filenaming.py* file is stored.
+7. Run `python filenaming.py <filepath> [filetype]` using the filepath in \#4. <br>E.g., `python filenaming.py /Users/Me/My_Stuff/cropfolder wav`, where *wav* is the default filetime (so, I could omit the `"wav"` here and it would behave the same way).
+8. You'll be prompted to verify you want to change file names; I recommend waiting until you're absolutely sure it's correct :).
+9. You do not need the .asd files in the new folder, so you can delete them if you like.
+
+### a few notes on this
+
+- **For individual clips, it's best to just use "Consolidate" in Ableton.** This makes a new Consolidate folder, and you can find them in there.
+
 # a note on updates
 
 *Right now, I have no intention of making major updates to the script.* The only changes I expect to make include minor UI adjustments, performance improvements, and bug fixes. I'll keep track of issues [here](https://github.com/leontoddjohnson/movements/issues).
