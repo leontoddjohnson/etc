@@ -282,11 +282,7 @@ Each track proceeds on its own independent transport. These transports move from
 
 #### play triggers
 
-Hold a pad in the *third* column to define a "play trigger" at track `i`, and then select an *unlit* pad in the first column to assign the play trigger to track `j`. As long as the following conditions are met, then track `j` will start at step 1 when track `i` returns to step 1 (i.e., they will sync up at the first step of the *first* sequence bar).
-
-**Both tracks must:**
-- have the same `time_type`
-- have the same *singular* `clock_fraction` (no clock ranges)
+Hold a pad in the *third* column to define a "play trigger" at track `i`, and then select an *unlit* pad in the first column to assign the play trigger to track `j`. Track `j` will start at step 1 when track `i` returns to step 1 (i.e., they will sync up at the first step of the *first* sequence bar). For this to work, track `i` (the trigger) must only have a *singular* `clock_fraction` (no clock range).
 
 If you hold a pad in the third column, you'll be shown the tracks triggered by that track.
 
