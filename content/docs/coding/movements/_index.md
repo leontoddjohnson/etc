@@ -280,6 +280,16 @@ Each track proceeds on its own independent transport. These transports move from
   - The fractions `1/8, 1/4, 1/2, 1, 2, 4` are highlighted upon entering the page. These complement the typical $4/4$-type time.
   - Hold **ALT**, and you'll find that the fractions `1/6, 1/3, 1, 3, 6` are highlighted. These complement a sort of $3/4$-type time.
 
+#### play triggers
+
+Hold a pad in the *third* column to define a "play trigger" at track `i`, and then select an *unlit* pad in the first column to assign the play trigger to track `j`. As long as the following conditions are met, then track `j` will start at step 1 when track `i` returns to step 1 (i.e., they will sync up at the first step of the *first* sequence bar).
+
+**Both tracks must:**
+- have the same `time_type`
+- have the same *singular* `clock_fraction` (no clock ranges)
+
+If you hold a pad in the third column, you'll be shown the tracks triggered by that track.
+
 ## tape pages
 
 For the most part, **tape** pages and **sample** grid pages look and function the same way, with two main differences:
