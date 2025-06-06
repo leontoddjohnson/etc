@@ -4,7 +4,7 @@ bookCollapseSection: false
 booktoc: false
 ---
 
-# snows
+# swons
 
 > An extension of @tehn's *[snows](https://monome.org/docs/iii/library/snows/)*. 
 
