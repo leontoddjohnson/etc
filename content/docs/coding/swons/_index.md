@@ -8,7 +8,7 @@ booktoc: false
 
 > An extension of @tehn's *[snows](https://monome.org/docs/iii/library/snows/)*. 
 
-Find the Lua file [here](https://github.com/leontoddjohnson/iii). Use single **KEY** presses to cycle between the following modes:
+Find the Lua file [here](https://github.com/leontoddjohnson/iii/blob/main/swons.lua). Use single **KEY** presses to cycle between the following modes:
 
 ## rings
 
