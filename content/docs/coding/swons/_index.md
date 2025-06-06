@@ -6,7 +6,9 @@ booktoc: false
 
 # swons
 
-> An extension of @tehn's *[snows](https://monome.org/docs/iii/library/snows/)*. 
+> An extension of @tehn's *[snows](https://monome.org/docs/iii/library/snows/)*.
+
+snows provides the foundational function for this script, but swons adds the ability to set sequences of notes within a scale which you can modulate on the fly.
 
 Find the Lua file [here](https://raw.githubusercontent.com/leontoddjohnson/iii/refs/heads/main/swons.lua). Use single **KEY** presses to cycle between the following modes:
 
@@ -40,7 +42,7 @@ Each sequence consists of notes from the scale within a window of 15 chromatic n
 
 ## scale
 
-Unless defined otherwise (see below), there are 8 scales to choose from, respectively: major, natural minor, major pentatonic, minor pentatonic, dorian, okinawa, whole tone, and chromatic. These scales are played using the 128 MIDI notes, where note `0` is the lowest *C*, and the rest follow in semitones (up to 10 full octaves).
+Unless defined otherwise (see below), there are 8 scales to choose from, respectively: major, natural minor, major pentatonic, minor pentatonic, dorian, okinawa, whole tone, and chromatic. These scales are played using the 128 MIDI notes, where note `0` is the lowest *C*, and the rest follow in semitones (up to 10 full octaves). Each scale saves a different quartet of arc sequences and window settings.
 
 The ring around **ENC 4** shows a visualization of the scale across 5 chromatic octaves inclusive (61 notes), from the lower left of the ring to the lower right. Here, the root note is the brightest, natural notes are less bright, sharps and flats are dim, and notes off the scale are dark.
 
