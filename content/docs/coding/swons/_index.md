@@ -15,9 +15,9 @@ Find the Lua file [here](https://github.com/leontoddjohnson/iii). Use single **K
 Note sequence "sprockets" through at the top of the ring each time the moving point hits 12 o'clock. Dimly lit notes are passed or to come, and the *next* note is always brightly lit at the 12 o'clock position. 
 
 - **ENC**: adjust ring speed and direction
-- **KEY + ENC\***: stop movement
+- **KEY + ENC**[^fn:stop]: stop movement
 
-\**Any dial adjustment will do.*
+[^fn:stop]: Any dial adjustment will do.
 
 ## notes
 
@@ -27,15 +27,13 @@ The bottom portion shows the selected window of the scale (within 15 chromatic n
 
 - **ENC (clockwise)**: select a note
 - **ENC (counter clockwise)**: place the note on the scale
-- **KEY + ENC**: add/remove the last note of the sequence (up to 16 notes)\*
+- **KEY + ENC**: add/remove the last note of the sequence (up to 16 notes)[^fn:new]
 
-\**New notes are randomly placed.*
+[^fn:new]: New notes are the first of the window.
 
 ## window
 
-Each sequence consists of notes from the scale within a window\* of the main scale (see below). The window is indicated by lights for each in-scale note. The root notes are brightest, natural notes are less bright, sharps and flats are dim, and notes off the scale are dark.
-
-\**The "window" spans 15 semitones (2 semitones over a full octave).*
+Each sequence consists of notes from the scale within a window of 15 chromatic notes of the main scale (see below). The window is indicated by lights for each in-scale note. The root notes are brightest, natural notes are less bright, sharps and flats are dim, and notes off the scale are dark.
 
 - **ENC**: define the window for the ring
 - **KEY + ENC**: increment the scale window in octaves
@@ -47,12 +45,12 @@ Unless defined otherwise (see below), there are 8 scales to choose from, respect
 The ring around **ENC 4** shows a visualization of the scale across 5 chromatic octaves inclusive (61 notes), from the lower left of the ring to the lower right. Here, the root note is the brightest, natural notes are less bright, sharps and flats are dim, and notes off the scale are dark.
 
 - **ENC 1**: select a scale
-- **ENC 2**: select root note (C, C#, D, ..., B)\*
+- **ENC 2**: select root note (C, C#, D, ..., B)[^fn:ui]
 - **ENC 3**: set starting octave (can be from 1 to 5; 3 is a good start)
-- **ENC 4**: modulate the scale down or up by an in-scale interval\*\*
+- **ENC 4**: modulate the scale down or up by an in-scale interval[^fn:low_mod]
 
-\**The UI here is similar to the scale window, with no root.*
-\*\**At the lowest and highest octave settings, modulating the scale may reduce the total number of notes due to MIDI only consisting of 128 notes.*
+[^fn:ui]: The UI here is similar to the scale window, with no root.
+[^fn:low_mod]: At the lowest and highest octave settings, modulating the scale may reduce the total number of notes due to MIDI only consisting of 128 notes.
 
 You can add up to 28 scales to the top of the Lua file. Scales are defined by a sequence of semitone intervals *whose sum is equal to 12* (e.g., `{2, 2, 1, 2, 2, 2, 1}` represents a major scale). You can use the following function in Maiden to build these:
 
