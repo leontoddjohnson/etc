@@ -638,18 +638,17 @@ The `interval` parameter defines what note of the scale to play when `scale` is 
 Note: the following assumes you have a Mac or Linux, or you have Python installed on your computer.
 {{% /hint %}}
 
+Download the */lib/filenaming.py* file to rename Ableton clips in a way that's convenient for organizing in the **sample** banks. By default, this method assumes you want different instruments (or sample "types") loaded by row or by column in the bank.
 
-Download the */lib/filenaming.py* file to rename Ableton cropped clips in a way that's convenient for organizing in the **sample** banks.
-
-1. Slice clips that you'd like to crop in Ableton.
-2. For each track, use **Cmd + A** to select preferred clips, and use **Cmd + R** to give them all the same name. *Multiple clips in ableton can have the same "name".*
-3. **Crop** clips in ableton using **Cmd + Shift + J**.
+1. Slice all the clips that you'd like to crop in Ableton (in Arrangement View).
+2. Use **Cmd + A** to select up to 8 clips (to name "by row"), up to 4 clips (to name "by column"), or up to 32 clips (to name "by bank"), and use **Cmd + R** to give them all the same name. *Multiple clips in Ableton can have the same "name".* Repeat this step for each row, column, or bank, as needed.
+3. Select all (up to 32) clips, and **Crop** them in Ableton using **Cmd + Shift + J**.
 4. Create a new folder to contain the renamed clips. Name it as you like.
-5. Find the *\<abletonproject\>/Samples/Processed/Crop* directory, and **Copy** the corresponding clips from this original *Crop* folder into your new folder (use the date/time as a guide ...). Ableton needs the files named as they are. <font color='orange'>Do not edit the "Crop" folder.</font>
+5. Find the *\<abletonproject\>/Samples/Processed/Crop* directory, and **Copy** the corresponding clips from this original *Crop* folder into your new folder (use the date/time as a guide ...). Ableton needs the original files named as they are. <font color='orange'>Do not edit the "Crop" folder.</font>
 6. Navigate in your command line to the place where the *filenaming.py* file is stored.
-7. Run `python filenaming.py <filepath> [filetype]` using the filepath in \#4. <br>E.g., `python filenaming.py /Users/Me/My_Stuff/cropfolder wav`, where *wav* is the default filetime (so, I could omit the `"wav"` here and it would behave the same way).
+7. Run `python filenaming.py <filepath> [name_by] [filetype]` using the filepath in \#4, where `name_by` is `row`, `col`, or `bank`. <br>E.g., `python filenaming.py /Users/Me/My_Stuff/cropfolder row wav`, where *row* and *wav* are the default (so, I could omit them here, and it would behave the same way).
 8. You'll be prompted to verify you want to change file names; I recommend waiting until you're absolutely sure it's correct :).
-9. You do not need the .asd files in the new folder, so you can delete them if you like.
+9. You do not need the *.asd* files in the new folder, so you can delete them if you like.
 
 ### a few notes on this
 
