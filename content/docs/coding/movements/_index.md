@@ -282,9 +282,21 @@ Each track proceeds on its own independent transport. These transports move from
 
 #### play triggers
 
+**track cue**
+
 Hold a pad in the *third* column to define a "play trigger" at track `i`, and then select an *unlit* pad in the first column to assign the play trigger to track `j`. Track `j` will start at step 1 when track `i` returns to step 1 (i.e., they will sync up at the first step of the *first* sequence bar). For this to work, track `i` (the trigger) must only have a *singular* `clock_fraction` (no clock range).
 
-If you hold a pad in the third column, you'll be shown the tracks triggered by that track.
+If you hold a pad in the third column, you'll be shown the bank triggered by that track.
+
+**bank cue**
+
+Hold a pad in the *third* column to define a "play trigger" at track `i`, and then select one of the four pads in the bottom row (at the lower left) to assign the trigger to bank `j`. Once track `i` returns to step 1, all tracks (with samples/patterns loaded in bank `j`) will switch to bank `j` and continue playing.
+
+If you hold a pad in the third column, you'll be shown the bank triggered by that track. Only one bank can be triggered by a track, and any track can only trigger *one* bank. 
+
+{{% hint warning %}}
+Note: clock fractions and track-level parameters will remain the same when switching from bank to bank. You might need to get creative here: e.g., use the pattern bars to "slow/speed up" the time, use the parameter patterns to control parameters between banks.
+{{% /hint %}}
 
 ## tape pages
 
