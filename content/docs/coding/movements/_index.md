@@ -284,15 +284,18 @@ Each track proceeds on its own independent transport. These transports move from
 
 **track cue**
 
-Hold a pad in the *third* column to define a "play trigger" at track `i`, and then select an *unlit* pad in the first column to assign the play trigger to track `j`. Track `j` will start at step 1 when track `i` returns to step 1 (i.e., they will sync up at the first step of the *first* sequence bar). For this to work, track `i` (the trigger) must only have a *singular* `clock_fraction` (no clock range).
+Hold a pad in the *third* column to define track `i` as a "play trigger", then select an *unlit* pad in the first column to assign the play trigger to track `j`. Track `j` will start at step 1 when track `i` returns to step 1 (i.e., they will sync up at the first step of the *first* sequence bar). For this to work, track `i` (the trigger) must only have a *singular* `clock_fraction` (no clock range).
 
-If you hold a pad in the third column, you'll be shown the bank triggered by that track.
+If you hold a pad in the third column and select a *lit* pad *in the same row* (i.e., a playing track), then that track will STOP at the end of its current pattern bar.
 
 **bank cue**
 
-Hold a pad in the *third* column to define a "play trigger" at track `i`, and then select one of the four pads in the bottom row (at the lower left) to assign the trigger to bank `j`. Once track `i` returns to step 1, all tracks (with samples/patterns loaded in bank `j`) will switch to bank `j` and continue playing.
+Hold a pad in the *third* column to define track `i` as a "play trigger", then select one of the four pads in the bottom row (at the lower left) to assign the trigger to bank `j`. Once track `i` returns to step 1, *all* tracks will switch to bank `j` and continue playing (even if there are no samples or patterns loaded on that bank).
 
-If you hold a pad in the third column, you'll be shown the bank triggered by that track. Only one bank can be triggered by a track, and any track can only trigger *one* bank. 
+- If you hold a pad in the third column, you'll be shown the tracks or bank triggered by that track.
+- A track can trigger multiple other tracks.
+- A track can only trigger *one* bank, and only one bank can be triggered at a time.
+- Re-selecting any "triggered" track or bank (no need to hold anything) will undo the trigger.
 
 {{% hint warning %}}
 Note: clock fractions and track-level parameters will remain the same when switching from bank to bank. You might need to get creative here: e.g., use the pattern bars to "slow/speed up" the time, use the parameter patterns to control parameters between banks.
@@ -658,9 +661,11 @@ Download the */lib/filenaming.py* file to rename Ableton clips in a way that's c
 4. Create a new folder to contain the renamed clips. Name it as you like.
 5. Find the *\<abletonproject\>/Samples/Processed/Crop* directory, and **Copy** the corresponding clips from this original *Crop* folder into your new folder (use the date/time as a guide ...). Ableton needs the original files named as they are. <font color='orange'>Do not edit the "Crop" folder.</font>
 6. Navigate in your command line to the place where the *filenaming.py* file is stored.
-7. Run `python filenaming.py <filepath> [name_by] [filetype]` using the filepath in \#4, where `name_by` is `row`, `col`, or `bank`. <br>E.g., `python filenaming.py /Users/Me/My_Stuff/cropfolder row wav`, where *row* and *wav* are the default (so, I could omit them here, and it would behave the same way).
+7. Run `python filenaming.py <filepath> [name_by] [filetype]` using the filepath in \#4, where `name_by` is `row`, `col`, or `bank`. <br>E.g., `python filenaming.py /Users/Me/My_Stuff/cropfolder row wav`, where *row* and *wav* are the default (so, I could omit them here, and it would behave the same way).[^fn:shortcut]
 8. You'll be prompted to verify you want to change file names; I recommend waiting until you're absolutely sure it's correct :).
 9. You do not need the *.asd* files in the new folder, so you can delete them if you like.
+
+[^fn:shortcut]: On a Mac, you can drag and drop the folder onto the terminal itself to show the filepath.
 
 ### a few notes on this
 
