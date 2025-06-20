@@ -284,13 +284,13 @@ Each track proceeds on its own independent transport. These transports move from
 
 **track cue**
 
-Hold a pad in the *third* column to define track `i` as a "play trigger", then select an *unlit* pad in the first column to assign the play trigger to track `j`. Track `j` will start at step 1 when track `i` returns to step 1 (i.e., they will sync up at the first step of the *first* sequence bar). For this to work, track `i` (the trigger) must only have a *singular* `clock_fraction` (no clock range).
+Hold a pad in the *third* column to define track `i` as a "play trigger", then select an *unlit* pad in the first column to assign the play trigger to track `j`. Track `j` will start at step 1 when track `i` reaches the end of its current pattern bar (i.e., they will sync up at the first step of a sequence bar). For this to work, track `i` (the trigger) must only have a *singular* `clock_fraction` (no clock range).
 
 If you hold a pad in the third column and select a *lit* pad *in the same row* (i.e., a playing track), then that track will STOP at the end of its current pattern bar.
 
 **bank cue**
 
-Hold a pad in the *third* column to define track `i` as a "play trigger", then select one of the four pads in the bottom row (at the lower left) to assign the trigger to bank `j`. Once track `i` returns to step 1, *all* tracks will switch to bank `j` and continue playing (even if there are no samples or patterns loaded on that bank).
+Hold a pad in the *third* column to define track `i` as a "play trigger", then select one of the four pads in the bottom row (at the lower left) to assign the trigger to bank `j`. Once track `i` reaches the end of its current pattern bar, *all* tracks will switch to bank `j` and continue playing (even if there are no samples or patterns loaded on that bank).
 
 - If you hold a pad in the third column, you'll be shown the tracks or bank triggered by that track.
 - A track can trigger multiple other tracks.
