@@ -279,6 +279,7 @@ Each track proceeds on its own independent transport. These transports move from
 - The dimly highlighted column indicate "compatible" fractions. If all your `clock_fraction` selections are in one of these columns, you'll find the syncopation to be relatively agreeable.
   - The fractions `1/8, 1/4, 1/2, 1, 2, 4` are highlighted upon entering the page. These complement the typical $4/4$-type time.
   - Hold **ALT**, and you'll find that the fractions `1/6, 1/3, 1, 3, 6` are highlighted. These complement a sort of $3/4$-type time.
+- In the bottom row, the 6th and 7th pads act as a metronome, flashing based on the last selected clock fraction. The time type of the last pressed clock fraction (*beat*s or *second*s) will reflect here as well.
 
 #### play triggers
 
