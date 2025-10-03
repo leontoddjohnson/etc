@@ -3,7 +3,7 @@
 # COPY parameters from themes/hugo-book/exampleSite/hugo.toml
 # use drafts/ for more on header tags
 # DOCS: https://themes.gohugo.io/themes/hugo-book/
-# EXAMPLE: https://hugo-book-demo.netlify.app/
+# EXAMPLE: https://hugo-book-demo.netlify.app/docs/example/
 # ALL SHORTCODES: https://gohugo.io/content-management/shortcodes/
 
 # when you're ready, publish: 
